@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'header',
+  selector: 'header-form',
   templateUrl: './HeaderComponent.html',
-  StyleUrls: ['./HeaderComponent.css']
+  styleUrls: ['./HeaderComponent.css'],
 })
 export class HeaderComponent {
+
 }
