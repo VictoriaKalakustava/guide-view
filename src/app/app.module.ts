@@ -9,11 +9,13 @@ import {UserService} from './service/user.service';
 
 import {AuthHttp} from 'angular2-jwt';
 import {authHttpServiceFactory} from "./factories/auth.factory";
+import {HeaderComponent} from "./component/HeaderComponent/HeaderComponent";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
