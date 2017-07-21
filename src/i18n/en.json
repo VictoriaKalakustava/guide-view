@@ -1,3 +1,22 @@
 {
-  "LOGIN": "Login"
+  "LOGIN": "Login",
+  "NAME" : "Name",
+  "LASTNAME": "Lastname",
+  "EMAIL": "email",
+  "USERNAME": "Username",
+  "ABOUT_ME": "About me",
+  "PROFILE": "Profile",
+  "RATING": "Rating",
+  "PHOTO": "Photo",
+  "EDIT_PROFILE":"Edit Profile",
+  "SETTINGS": "Settings",
+  "LOGOUT": "Logout",
+  "NEW_NAME" : "Edit Name",
+  "NEW_LASTNAME": "Edit Lastname",
+  "NEW_EMAIL": "Edit email",
+  "NEW_USERNAME": "Edit Username",
+  "NEW_PHOTO": "Edit Photo",
+  "NEW_PASSWORD": "Edit Password",
+  "MEDAL": "Medal",
+  "PROFILE_ARTICLE": "My article"
 }
