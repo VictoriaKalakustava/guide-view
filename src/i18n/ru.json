@@ -1,3 +1,23 @@
 {
-  "LOGIN": "Войти"
+  "LOGIN": "Войти",
+  "NAME": "Имя",
+  "LASTNAME": "Фамилия",
+  "EMAIL": "email",
+  "USERNAME": "Никнейм",
+  "ABOUT_ME": "О себе",
+  "PROFILE": "Профиль",
+  "PHOTO": "Фото",
+  "RATING": "Рейтинг",
+  "EDIT_PROFILE": "Редактировать профиль",
+  "SETTINGS": "Настройки",
+  "LOGOUT":"Выйти",
+  "NEW_NAME" : "Изменить имя",
+  "NEW_LASTNAME": "Изменить фамилию",
+  "NEW_EMAIL": "Изменить email",
+  "NEW_USERNAME": "Изменить никнейм",
+  "NEW_PHOTO": "Изменить фото",
+  "NEW_PASSWORD": "Изменить пароль",
+  "MEDAL":"Медаль",
+  "PROFILE_ARTICLE":"Мои статьи"
+
 }
