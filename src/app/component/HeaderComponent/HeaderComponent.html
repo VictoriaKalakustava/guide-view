@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a [routerLink]="['profile']" >Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -21,25 +21,19 @@
           </ul>
         </li>
       </ul>
-
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <form class="navbar-form">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search"><a>  </a>
-              <span class="glyphicon glyphicon-search" aria-hidden="true" style="color: white;padding-left: 10px"></span>
-            </div>
-            <a>
-
-            </a>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  {{"LOGIN" | translate}}
+            </button>
           </form>
-        </li>
-        <li>
-          <form class="navbar-form">
-          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
-            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  {{"LOGIN" | translate}}
-          </button>
-        </form>
           <div class="modal fade" id="login-form-id">
             <div class="modal-dialog" role="document">
               <login-form></login-form>

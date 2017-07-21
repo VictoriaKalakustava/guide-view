@@ -1,10 +1,15 @@
-import {Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'header-form',
+  selector: 'app-header-form',
   templateUrl: './HeaderComponent.html',
   styleUrls: ['./HeaderComponent.css'],
 })
-export class HeaderComponent {
 
+export class HeaderComponent {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+  ) { }
 }
