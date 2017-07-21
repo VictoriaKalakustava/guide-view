@@ -16,8 +16,14 @@ export class UserService extends CoreService {
 
 
   getUser1() {
-    console.log('User Service. getUser1');
-    return this.authHttp.get(`${this.webServiceEndpoint}/test`)
-      .map((response: Response) => response.json());
+  console.log('User Service. getUser1');
+  return this.authHttp.get(`${this.webServiceEndpoint}/test`)
+    .map((response: Response) => response.json());
+}
+
+  signUp(user : User) {
+    console.log('signup');
+    return this.authHttp.post(`${this.webServiceEndpoint}/sign-up`, user)
+      .map((response: Response) => response);
   }
 }

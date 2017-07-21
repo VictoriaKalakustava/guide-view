@@ -3,8 +3,8 @@ export class User {
   login: string;
   enabled: boolean;
   password: string;
-  firstName: string;
-  lastName: string;
+  name: string;
+  surname: string;
   email: string;
   sex: string;
   about: string;
