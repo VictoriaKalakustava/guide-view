@@ -5,15 +5,37 @@
 
 #profile_ph{
   width: 25%;
+  padding-top: 15px;
 }
 
 #draganddrop{
-  width: 70%;
+  width: 100%;
   float: left;
-  margin-top: 15px;
 }
 
 #edit_form{
   margin-left: 3px;
 }
 
+.custominpform{
+  padding: 0;
+  margin: 5px;
+  margin-left: 15px;
+
+}
+.cust_size{
+  font-size: 11px;
+}
+
+.cust_panel{
+  padding: 5px 10px;
+}
+
+.mypanel-body{
+  padding: 6px;
+}
+#edit_profile{
+  padding: 0;
+  margin-left: 15px;
+  width: 70%;
+}
