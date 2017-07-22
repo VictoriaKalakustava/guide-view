@@ -12,6 +12,7 @@
       </ul>
     </div>
 
+
     <div class="col-md-9  admin-content" id="profile">
       <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " style="padding-top: 15px;">
         <div class="panel panel-default">
@@ -23,6 +24,7 @@
             </div>
           </div>
         </div>
+
       </div>
       <div class="panel panel-default">
         <div class="panel-body">
@@ -74,108 +76,92 @@
         </div>
       </div>
 
-    <div class="col-md-9  admin-content" id="edit_profile">
+    <div class="col-md-9  admin-content panel" id="edit_profile">
 
-      <div class="row panel" id="edit_form">
-        <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph" style="padding-top: 15px;">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <div class="media">
-                <div align="center">
-                  <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+      <div class="panel" id="edit_form">
+
+        <div id="draganddrop" class="panel" >
+          <div class="panel-body" style="padding: 0;">
+            <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph">
+
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="media">
+                    <div align="center">
+                      <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <div class="panel panel-info" style="">
+                <div class="panel-heading cust_panel">
+                  <h3 class="panel-title"><label for="new_username" class="control-label panel-title cust_size">{{"NEW_USERNAME"| translate}}</label></h3>
+                </div>
+                <div class="mypanel-body">
+                    <div class="col-sm-14">
+                      <input type="password" class="form-control" name="new_username" id="new_username" >
+                    </div>
+                </div>
+              </div>
+
+            </div>
+
+            <app-draganddrop-form>
+            </app-draganddrop-form>
+          </div>
+        </div>
+
+        <form action="/password" method="post">
+
+          <div class="col-md-4 custominpform panel panel-info">
+            <div class="panel-heading cust_panel">
+              <h3 class="panel-title"><label for="new_password" class="control-label panel-title cust_size">{{"NEW_PASSWORD"| translate}}</label></h3>
+            </div>
+            <div class="mypanel-body">
+                <div class="col-sm-14">
+                  <input type="password" class="form-control" name="password" id="new_password" >
+                </div>
             </div>
           </div>
-        </div>
-        <div id="draganddrop" class="panel panel-default" >
-          <div class="panel-body">
-            <app-draganddrop-form></app-draganddrop-form>
+
+          <div class="col-md-4 custominpform panel panel-info" >
+            <div class="panel-heading cust_panel">
+              <h3 class="panel-title"><label for="new_name" class="control-label panel-title cust_size">{{"NEW_NAME"| translate}}</label></h3>
+            </div>
+            <div class="mypanel-body">
+                <div class="col-sm-14">
+                  <input type="password" class="form-control" name="new_name" id="new_name" >
+                </div>
+            </div>
           </div>
-        </div>
+
+
+          <div class="col-md-4 custominpform panel panel-info" >
+            <div class="panel-heading cust_panel">
+              <h3 class="panel-title"><label for="new_lastname" class="control-label panel-title cust_size">{{"NEW_LASTNAME"| translate}}</label></h3>
+            </div>
+            <div class="mypanel-body">
+                <div class="col-sm-14">
+                  <input type="password" class="form-control" name="new_lastname" id="new_lastname" >
+                </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 custominpform panel panel-info" >
+            <div class="panel-heading cust_panel">
+              <h3 class="panel-title"><label for="new_email" class="control-label panel-title cust_size">{{"NEW_EMAIL"| translate}}</label></h3>
+            </div>
+            <div class="mypanel-body">
+                <div class="col-sm-14">
+                  <input type="email" class="form-control" name="new_email" id="new_email" >
+                </div>
+            </div>
+          </div>
+        </form>
+
       </div>
-
-      <form action="/password" method="post">
-        <div class="panel panel-info" style="margin: 0.5em;">
-          <div class="panel-heading">
-            <h3 class="panel-title"><label for="new_password" class="control-label panel-title">{{"NEW_PASSWORD"| translate}}</label></h3>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="col-sm-10">
-                <input type="password" class="form-control" name="password" id="new_password" >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-info" style="margin: 0.5em;">
-          <div class="panel-heading">
-            <h3 class="panel-title"><label for="new_name" class="control-label panel-title">{{"NEW_NAME"| translate}}</label></h3>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="col-sm-10">
-                <input type="password" class="form-control" name="new_name" id="new_name" >
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="panel panel-info" style="margin: 0.5em;">
-          <div class="panel-heading">
-            <h3 class="panel-title"><label for="new_lastname" class="control-label panel-title">{{"NEW_LASTNAME"| translate}}</label></h3>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="col-sm-10">
-                <input type="password" class="form-control" name="new_lastname" id="new_lastname" >
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="panel panel-info" style="margin: 0.5em;">
-          <div class="panel-heading">
-            <h3 class="panel-title"><label for="new_email" class="control-label panel-title">{{"NEW_EMAIL"| translate}}</label></h3>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="col-sm-10">
-                <input type="email" class="form-control" name="new_email" id="new_email" >
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="panel panel-info" style="margin: 0.5em;">
-          <div class="panel-heading">
-            <h3 class="panel-title"><label for="new_username" class="control-label panel-title">{{"NEW_USERNAME"| translate}}</label></h3>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="col-sm-10">
-                <input type="password" class="form-control" name="new_username" id="new_username" >
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel panel-info border" style="margin: 0.5em;">
-          <div class="panel-body">
-            <div class="form-group">
-              <div class="pull-left">
-                <input type="submit" class="form-control btn btn-primary" name="submit" id="submit">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </form>
     </div>
 
     <div class="col-md-9  admin-content" id="logout">

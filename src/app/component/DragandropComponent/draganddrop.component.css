@@ -19,12 +19,9 @@
 }
 
 #dropandproggress{
-  width: 65%;
-  display: inline-block;
-  float: left;
+  margin-left: 15px;
 }
 #std_form{
-  width: 25%;
-  display: inline-block;
   margin-left: 15px;
+  display: inline-block;
 }
