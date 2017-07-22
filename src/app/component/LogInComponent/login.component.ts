@@ -17,7 +17,7 @@ export class LoginComponent {
 
   private user: User = new User();
   formErrors = {
-    username: '',
+    mylogin: '',
   };
 
   //to do: correct value to if
@@ -30,25 +30,26 @@ export class LoginComponent {
   }
 
   checkLogin() {
-    var login: String;
-    login = $('#username');
-    this.formErrors.username = '';
+    this.formErrors.mylogin = 'a';
+    var formLogin = $('#username-signup');
     console.log('logincheck');
-    if(this.user.login !== '') {
-      this.loginIsExist(login);
+    if(this.user.login === '' ) {
+      console.log('required');
+      this.formErrors.mylogin = 'Login is required.';
+      formLogin.addClass('redLine');
     } else {
-      this.formErrors.username = 'Login is required.';
+      this.loginIsExist(formLogin);
     }
   }
 
-  loginIsExist(login: String) {
-    this.userService.isExistLogin(login).subscribe(
+  loginIsExist(login) {
+    console.log('is exist method');
+    this.userService.isExistLogin(login.toString()).subscribe(
       data => {
-        this.isLoginExist = data.json();
-        if(this.isLoginExist) {
-          this.formErrors.username = 'Such login is exist.';
+        if(data.json()) {
+          this.formErrors.mylogin = 'Such login is exist.';
         } else {
-          this.isLoginExist = false;
+
         }
       }
     )
