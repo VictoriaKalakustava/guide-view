@@ -11,14 +11,18 @@ declare var $: any;
 })
 export class LoginComponent {
   isLoginExist: boolean;
+  passwordConfirm: String;
+  private user: User = new User();
+  formErrors = {
+    mylogin: '',
+    password: '',
+    passwordConfirm: ''
+  };
+
   constructor(private userService: UserService) {
 
   }
 
-  private user: User = new User();
-  formErrors = {
-    mylogin: '',
-  };
 
   //to do: correct value to if
   signUp(value: any) {
@@ -29,9 +33,37 @@ export class LoginComponent {
     console.log('signup');
   }
 
+  checkPassword() {
+    this.formErrors.password = '';
+    var password = $('#password-signup');
+    console.log(this.user.password);
+    if(this.user.password === '') {
+      console.log('required');
+      this.formErrors.password = 'PASSWORD_REQUEST';
+      this.changeInputColor(password, true);
+    } else {
+      this.changeInputColor(password, false);
+    }
+  }
+
+  checkPasswordConfirm() {
+    this.formErrors.passwordConfirm = '';
+    var password = $('#password-confirm');
+    console.log(this.passwordConfirm);
+    if(this.passwordConfirm === this.user.password) {
+      this.changeInputColor(password, false);
+    } else {
+      console.log('required');
+      this.formErrors.passwordConfirm = 'PASSWORDS_NOT_EQUALS';
+      this.changeInputColor(password, true);
+    }
+  }
+
   checkLogin() {
     this.formErrors.mylogin = '';
     var formLogin = $('#username-signup');
+    console.log(this.user.login);
+    console.log(formLogin.component);
     if(this.user.login === '' ) {
       console.log('required');
       this.formErrors.mylogin = 'LOGIN_REQUEST';

@@ -20,6 +20,8 @@
   "MEDAL": "Medal",
   "PROFILE_ARTICLE": "My article",
   "LOGIN_REQUEST": "Login is required",
+  "PASSWORD_REQUEST": "Password is required",
   "LOGIN_IS_EXIST": "Such login is already exist",
+  "PASSWORDS_NOT_EQUALS": "Passwords do not match",
   "":""
 }

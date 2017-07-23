@@ -61,13 +61,21 @@
                      placeholder="Email Address" value="">
             </div>
             <div class="form-group">
-              <input type="password" ngModel name="password" id="password-signup" tabindex="3" class="form-control"
-                     placeholder="Password">
+              <input type="text" name="password" [(ngModel)]="user.password" id="password-signup" tabindex="3" class="form-control"
+                     placeholder="Password" (keyup)="checkPassword()" (blur)="checkPassword()" >
             </div>
+            <span class="help-block" *ngIf="formErrors.password" style="color: red">
+                {{ formErrors.password | translate}}
+              </span>
             <div class="form-group">
-              <input type="password" ngModel name="confirmPassword" id="confirm-password" tabindex="4"
+              <input type="password" [(ngModel)]="passwordConfirm" (keyup)="checkPasswordConfirm()" (blur)="checkPasswordConfirm()"
+                      name="passwordConfirm" id="password-confirm" tabindex="4"
                      class="form-control" placeholder="Confirm Password">
             </div>
+            <span class="help-block" *ngIf="formErrors.passwordConfirm" style="color: red">
+                {{ formErrors.passwordConfirm | translate}}
+              </span>
+
             <div class="form-group">
               <input type="text" ngModel name="name" id="firstname" tabindex="5" class="form-control"
                      placeholder="Name" value="">
