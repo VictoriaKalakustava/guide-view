@@ -95,3 +95,15 @@
   background-color: #59B2E0;
   border-color: #59B2E0;
 }
+
+.redLine {
+  border-left: 3px solid red !important;
+  box-shadow: 0 0 1px 0 red !important;
+  background-color: transparent !important;
+}
+
+.greenLine {
+  border-left: 3px solid #4CAF50 !important;
+  box-shadow: 0 0 1px 0 #4CAF50 !important;
+  background-color: transparent !important;
+}

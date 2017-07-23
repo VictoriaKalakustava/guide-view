@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import {Http, HttpModule, RequestOptions} from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { TestComponent} from './component/testComponent/TestComponent';
 import { UserService} from './service/user.service';
 
 import { AuthHttp} from 'angular2-jwt';
@@ -25,7 +24,6 @@ export function HttpLoaderFactory(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     HeaderComponent,
     LoginComponent,
     ProfileComponent,

@@ -14,12 +14,10 @@ export class UserService extends CoreService {
     super();
   }
 
-
-  getUser1() {
-  console.log('User Service. getUser1');
-  return this.authHttp.get(`${this.webServiceEndpoint}/test`)
-    .map((response: Response) => response.json());
-}
+  isExistLogin(login: String) {
+    return this.authHttp.post(`${this.webServiceEndpoint}/sign-up/login/is-exist`, login)
+      .map((response: Response) => response);
+  }
 
   signUp(user : User) {
     console.log('signup');
