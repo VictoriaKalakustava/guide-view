@@ -51,7 +51,7 @@
               <input type="text" name="username"
                      id="username-signup" tabindex="1" [(ngModel)]="user.login"
                      class="form-control" (keyup)="checkLogin()" (blur)="checkLogin()"
-                     placeholder="Username" value="">
+                     placeholder="Username" value="" required="">
               <span class="help-block" *ngIf="formErrors.mylogin" style="color: red">
                 {{ formErrors.mylogin | translate}}
               </span>
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group">
               <input type="text" name="password" [(ngModel)]="user.password" id="password-signup" tabindex="3" class="form-control"
-                     placeholder="Password" (keyup)="checkPassword()" (blur)="checkPassword()" >
+                     placeholder="Password" (keyup)="checkPassword()" (blur)="checkPassword()" minlength="8" >
             </div>
             <span class="help-block" *ngIf="formErrors.password" style="color: red">
                 {{ formErrors.password | translate}}
@@ -78,19 +78,19 @@
 
             <div class="form-group">
               <input type="text" ngModel name="name" id="firstname" tabindex="5" class="form-control"
-                     placeholder="Name" value="">
+                     placeholder="Name" value="" required="">
             </div>
             <div class="form-group">
               <input type="text" ngModel name="surname" id="lastname" tabindex="6" class="form-control"
-                     placeholder="Surname" value="">
+                     placeholder="Surname" value="" required="">
             </div>
             <div class="form-group">
 
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-6 col-sm-offset-3">
-                    <input type="submit" name="register-submit" id="register-submit" tabindex="7"
-                           class="form-control btn btn-register" value="Register Now">
+                    <input type="submit" [disabled]="!isLoginExist || !isPasswordExist || !isPasswordConfirm" name="register-submit" id="register-submit" tabindex="7"
+                            class="form-control btn btn-register" value="Register Now">
                   </div>
                 </div>
               </div>

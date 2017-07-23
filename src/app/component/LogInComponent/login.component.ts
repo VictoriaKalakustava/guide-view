@@ -10,7 +10,9 @@ declare var $: any;
 
 })
 export class LoginComponent {
-  isLoginExist: boolean;
+  isLoginExist: boolean = false;
+  isPasswordExist: boolean = false;
+  isPasswordConfirm: boolean = false;
   passwordConfirm: String;
   private user: User = new User();
   formErrors = {
@@ -40,10 +42,14 @@ export class LoginComponent {
     if(this.user.password === '') {
       console.log('required');
       this.formErrors.password = 'PASSWORD_REQUEST';
+      this.isPasswordExist = false;
       this.changeInputColor(password, true);
     } else {
+
+      this.isPasswordExist = true;
       this.changeInputColor(password, false);
     }
+    this.checkPasswordConfirm();
   }
 
   checkPasswordConfirm() {
@@ -52,7 +58,9 @@ export class LoginComponent {
     console.log(this.passwordConfirm);
     if(this.passwordConfirm === this.user.password) {
       this.changeInputColor(password, false);
+      this.isPasswordConfirm = true;
     } else {
+      this.isPasswordConfirm = false;
       console.log('required');
       this.formErrors.passwordConfirm = 'PASSWORDS_NOT_EQUALS';
       this.changeInputColor(password, true);
@@ -79,9 +87,10 @@ export class LoginComponent {
         if(data.json()) {
           this.formErrors.mylogin = "LOGIN_IS_EXIST";
           this.changeInputColor(login, true);
+          this.isLoginExist = false;
         } else {
           this.changeInputColor(login, false);
-
+          this.isLoginExist = true;
         }
       }
     )
