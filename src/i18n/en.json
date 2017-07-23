@@ -18,5 +18,8 @@
   "NEW_PHOTO": "Edit Photo",
   "NEW_PASSWORD": "Edit Password",
   "MEDAL": "Medal",
-  "PROFILE_ARTICLE": "My article"
+  "PROFILE_ARTICLE": "My article",
+  "LOGIN_REQUEST": "Login is required",
+  "LOGIN_IS_EXIST": "Such login is already exist",
+  "":""
 }

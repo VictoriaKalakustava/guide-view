@@ -18,6 +18,8 @@
   "NEW_PHOTO": "Изменить фото",
   "NEW_PASSWORD": "Изменить пароль",
   "MEDAL":"Медаль",
-  "PROFILE_ARTICLE":"Мои статьи"
-
+  "PROFILE_ARTICLE":"Мои статьи",
+  "LOGIN_REQUEST": "Требуется логин",
+  "LOGIN_IS_EXIST": "Такой логин уже существует",
+  "":""
 }

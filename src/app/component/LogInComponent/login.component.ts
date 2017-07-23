@@ -30,25 +30,25 @@ export class LoginComponent {
   }
 
   checkLogin() {
-    this.formErrors.mylogin = 'a';
+    this.formErrors.mylogin = '';
     var formLogin = $('#username-signup');
-    console.log('logincheck');
     if(this.user.login === '' ) {
       console.log('required');
-      this.formErrors.mylogin = 'Login is required.';
-      formLogin.addClass('redLine');
+      this.formErrors.mylogin = 'LOGIN_REQUEST';
+      this.changeInputColor(formLogin, true);
     } else {
       this.loginIsExist(formLogin);
     }
   }
 
   loginIsExist(login) {
-    console.log('is exist method');
     this.userService.isExistLogin(login.toString()).subscribe(
       data => {
         if(data.json()) {
-          this.formErrors.mylogin = 'Such login is exist.';
+          this.formErrors.mylogin = "LOGIN_IS_EXIST";
+          this.changeInputColor(login, true);
         } else {
+          this.changeInputColor(login, false);
 
         }
       }
@@ -71,5 +71,15 @@ export class LoginComponent {
         console.log(data)
       }
     )
+  }
+
+  changeInputColor(element, isError) {
+    if(isError) {
+      element.removeClass('greenLine');
+      element.addClass('redLine');
+    } else {
+      element.addClass('greenLine');
+      element.removeClass('redLine');
+    }
   }
 }
