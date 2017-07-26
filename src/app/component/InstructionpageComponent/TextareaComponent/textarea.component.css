@@ -1,0 +1,14 @@
+#note {
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  min-height: 100px;
+  line-height: 1.5;
+  padding: 15px 15px 15px;
+  border-radius: 4px;
+  border: 1px solid #DDDDDD;
+  font: 13px Tahoma, cursive;
+  transition: box-shadow 0.5s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background: white;
+}

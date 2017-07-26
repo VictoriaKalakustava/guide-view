@@ -18,6 +18,11 @@
   "NEW_PHOTO": "Изменить фото",
   "NEW_PASSWORD": "Изменить пароль",
   "MEDAL":"Медаль",
-  "PROFILE_ARTICLE":"Мои статьи"
+  "PROFILE_ARTICLE":"Мои статьи",
+  "TEXT": "Текст",
+  "VIDEO": "Видео",
+  "IMAGE": "Изображение",
+  "NEW_INSTRUCTION":"Инструкция",
+  "PREVIEW": "Просмотр"
 
 }

@@ -18,5 +18,10 @@
   "NEW_PHOTO": "Edit Photo",
   "NEW_PASSWORD": "Edit Password",
   "MEDAL": "Medal",
-  "PROFILE_ARTICLE": "My article"
+  "PROFILE_ARTICLE": "My article",
+  "TEXT": "Text",
+  "VIDEO": "Video",
+  "IMAGE": "Image",
+  "NEW_INSTRUCTION":"Instruction",
+  "PREVIEW": "Preview"
 }

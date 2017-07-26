@@ -4,7 +4,7 @@ import {CoreService} from './core/core.service';
 import {AuthHttp} from 'angular2-jwt';
 
 import 'rxjs/add/operator/map';
-import {Response} from '@angular/http';
+import {Response, Headers } from '@angular/http';
 
 @Injectable()
 export class UserService extends CoreService {
@@ -14,16 +14,24 @@ export class UserService extends CoreService {
     super();
   }
 
-
-  getUser1() {
-  console.log('User Service. getUser1');
-  return this.authHttp.get(`${this.webServiceEndpoint}/test`)
-    .map((response: Response) => response.json());
-}
-
-  signUp(user : User) {
+  signUp(user: User) {
     console.log('signup');
     return this.authHttp.post(`${this.webServiceEndpoint}/sign-up`, user)
       .map((response: Response) => response);
+  }
+
+  updateProfile(user: User) {
+    console.log('update');
+    return this.authHttp.post(`${this.webServiceEndpoint}/update-user`, user)
+      .map((response: Response) => response);
+  }
+
+  getProfileByLogin(login: String) {
+    console.log('it\'s get profile ');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    headers.append('X-Requested-With', 'XMLHttpRequest');
+    headers.append('Accept-Encoding', 'gzip, deflate');
+    return this.authHttp.get(`${this.webServiceEndpoint}/update-user?login=` + login);
   }
 }

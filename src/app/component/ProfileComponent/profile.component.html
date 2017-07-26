@@ -1,17 +1,16 @@
-<div class="container">
+<div class="container" id="profile_component">
 
-  <div class="row">
+  <div class="row" style="height: 100%;">
 
     <div class="col-md-3 panel nopadding">
       <ul class="nav nav-pills nav-stacked admin-menu" >
         <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> {{"PROFILE"| translate}}</a></li>
-        <li><a href="" data-target-id="edit_profile"><i class="glyphicon glyphicon-edit"></i> {{"EDIT_PROFILE"| translate}}</a></li>
+        <li><a href="" (click)="getUser()" data-target-id="edit_profile"><i class="glyphicon glyphicon-edit"></i> {{"EDIT_PROFILE"| translate}}</a></li>
         <li><a href="" data-target-id="profile_article"><i class="glyphicon glyphicon-list-alt"></i> {{"PROFILE_ARTICLE"| translate}}</a></li>
         <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i> {{"SETTINGS"| translate}}</a></li>
         <li><a href="" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i> {{"LOGOUT"| translate}}</a></li>
       </ul>
     </div>
-
 
     <div class="col-md-9  admin-content" id="profile">
       <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " style="padding-top: 15px;">
@@ -76,43 +75,41 @@
         </div>
       </div>
 
-    <div class="col-md-9  admin-content panel" id="edit_profile">
+    <div class="col-md-9  admin-content" id="edit_profile">
 
       <div class="panel" id="edit_form">
 
-        <div id="draganddrop" class="panel" >
-          <div class="panel-body" style="padding: 0;">
-            <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph">
+        <form #form="ngForm" (updateField)="updateProfile(form.value)">
 
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="media">
-                    <div align="center">
-                      <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+          <div id="draganddrop" class="panel" >
+            <div class="panel-body" style="padding: 0;">
+              <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph">
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="media">
+                      <div align="center">
+                        <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="panel panel-info" style="">
-                <div class="panel-heading cust_panel">
-                  <h3 class="panel-title"><label for="new_username" class="control-label panel-title cust_size">{{"NEW_USERNAME"| translate}}</label></h3>
+                <div class="panel panel-info" style="">
+                  <div class="panel-heading cust_panel">
+                    <h3 class="panel-title"><label for="new_username" class="control-label panel-title cust_size">{{"NEW_USERNAME"| translate}}</label></h3>
+                  </div>
+                  <div class="mypanel-body">
+                      <div class="col-sm-14">
+                        <input [(ngModel)]="user.login" name="username" (keyup.enter)="updateProfile()" class="form-control"   id="new_username" >
+                      </div>
+                  </div>
                 </div>
-                <div class="mypanel-body">
-                    <div class="col-sm-14">
-                      <input type="password" class="form-control" name="new_username" id="new_username" >
-                    </div>
-                </div>
-              </div>
 
+              </div>
+              <app-draganddrop-form></app-draganddrop-form>
             </div>
-
-            <app-draganddrop-form>
-            </app-draganddrop-form>
-          </div>
         </div>
-
-        <form action="/password" method="post">
 
           <div class="col-md-4 custominpform panel panel-info">
             <div class="panel-heading cust_panel">
@@ -120,7 +117,7 @@
             </div>
             <div class="mypanel-body">
                 <div class="col-sm-14">
-                  <input type="password" class="form-control" name="password" id="new_password" >
+                  <input type="password" class="form-control" ngModel name="new_password" id="new_password" >
                 </div>
             </div>
           </div>
@@ -131,7 +128,7 @@
             </div>
             <div class="mypanel-body">
                 <div class="col-sm-14">
-                  <input type="password" class="form-control" name="new_name" id="new_name" >
+                  <input type="password" class="form-control" ngModel name="new_name" id="new_name" >
                 </div>
             </div>
           </div>
@@ -143,7 +140,7 @@
             </div>
             <div class="mypanel-body">
                 <div class="col-sm-14">
-                  <input type="password" class="form-control" name="new_lastname" id="new_lastname" >
+                  <input class="form-control" ngModel name="new_lastname" id="new_lastname" >
                 </div>
             </div>
           </div>
@@ -155,13 +152,16 @@
             </div>
             <div class="mypanel-body">
                 <div class="col-sm-14">
-                  <input type="email" class="form-control" name="new_email" id="new_email" >
+                  <input type="email" class="form-control" ngModel name="new_email" id="new_email" >
                 </div>
             </div>
           </div>
         </form>
-
       </div>
+    </div>
+
+    <div class="col-md-9  admin-content" id="profile_article" >
+      <app-instruction-red-form></app-instruction-red-form>
     </div>
 
     <div class="col-md-9  admin-content" id="logout">
