@@ -1,6 +1,7 @@
 .nopadding{
   padding-left: 0;
   padding-right: 0;
+  max-width: 210px;
 }
 
 #profile_ph{
@@ -36,6 +37,28 @@
 }
 #edit_profile{
   padding: 0;
-  margin-left: 15px;
-  width: 70%;
+  margin-left: 7px;
+  width: 75%;
+  background-color: white;
+  border-radius: 4px;
+}
+#settings{
+  border-radius: 4px;
+}
+
+#profile_article{
+  border-radius: 4px;
+}
+#profile{
+  margin-left: 7px;
+  padding: 0px;
+}
+#profile_article{
+  margin-left: 7px;
+  padding: 0px;
+  height: 100%;
+}
+#profile_component{
+  height: 100%;
+  padding-bottom: 15px;
 }

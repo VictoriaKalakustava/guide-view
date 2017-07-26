@@ -1,6 +1,6 @@
-import {animate, Component, state, style, transition, trigger} from "@angular/core";
-import {User} from "../../entity/user";
-import {UserService} from "../../service/user.service";
+import {animate, Component, state, style, transition, trigger} from '@angular/core';
+import {User} from '../../entity/user';
+import {UserService} from '../../service/user.service';
 
 declare var $: any;
 @Component({
@@ -22,9 +22,7 @@ export class LoginComponent {
   };
 
   constructor(private userService: UserService) {
-
   }
-
 
   //to do: correct value to if
   signUp(value: any) {
@@ -123,4 +121,6 @@ export class LoginComponent {
       element.removeClass('redLine');
     }
   }
+
+
 }

@@ -23,5 +23,10 @@
   "PASSWORD_REQUEST": "Требуется пароль",
   "LOGIN_IS_EXIST": "Такой логин уже существует",
   "PASSWORDS_NOT_EQUALS": "Пароли не совпадают",
-  "":""
+  "TEXT": "Текст",
+  "VIDEO": "Видео",
+  "IMAGE": "Изображение",
+  "NEW_INSTRUCTION":"Инструкция",
+  "PREVIEW": "Просмотр"
+
 }

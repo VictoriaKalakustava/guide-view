@@ -1,0 +1,19 @@
+#video{
+  background-color: white;
+  border-radius: 4px;
+  position: relative;
+  padding-bottom: 1.25%;
+  padding-top: 2.25%;
+  padding-left: 15px;
+  border: 1px solid #DDDDDD;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: inline-flex;
+}
+#player{
+  height: 275px;
+  width: 355px;
+}
+#urlandname{
+  padding: 0px 15px;
+  width: 45%;
+}

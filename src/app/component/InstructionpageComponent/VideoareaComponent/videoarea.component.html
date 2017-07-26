@@ -1,0 +1,19 @@
+
+<div class="video" id="video">
+
+  <youtube-player *ngIf="id!= null" id="player" [videoId]="id"></youtube-player>
+
+  <div id="urlandname">
+    <form id="info-form" #form="ngForm" (change)="getId(form.value)">
+      <div class="input-group" style="margin-bottom: 10px;">
+        <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-facetime-video"></i></span>
+        <input type="text" class="form-control" placeholder="Video's title" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-globe"></i></span>
+        <input  type="url" ngModel name="urlinp" id="urlinp" class="form-control" placeholder="Video's url" aria-describedby="basic-addon2">
+      </div>
+    </form>
+  </div>
+
+</div>
