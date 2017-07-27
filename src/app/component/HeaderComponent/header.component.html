@@ -1,5 +1,4 @@
-
-<nav id = "navbar-header" class="navbar navbar-default navbar-inverse" role="navigation">
+<nav id="navbar-header" class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
 
 
@@ -9,15 +8,23 @@
         <li><a href="#">Something</a></li>
         <li><a [routerLink]="['profile']" id="go_to_profile">Profile</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">{{"ADD_GUIDE" | translate}}</a></li>
+            <!-- TODO: night-day mode switch-->
+            <li>
+              <a>
+                <div style="float: left">Night mode</div>
+                <a class="btn_switch" >
+                  <input type="checkbox" name="switch" id="switch" [(ngModel)]="mode" (change)="changeMode()">
+                  <label for="switch" style="margin-left: 10px"></label>
+                </a>
+              </a>
+            </li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">{{"SETTINGS" | translate}}</a></li>
             <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">{{"LOGOUT" | translate}}</a></li>
           </ul>
         </li>
       </ul>
@@ -31,7 +38,7 @@
         <li>
           <form class="navbar-form">
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
-              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  {{"LOGIN" | translate}}
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{"LOGIN" | translate}}
             </button>
           </form>
           <div class="modal fade" id="login-form-id">

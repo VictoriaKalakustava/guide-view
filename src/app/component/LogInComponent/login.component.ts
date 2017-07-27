@@ -107,7 +107,7 @@ export class LoginComponent {
     this.getUserForSignUp(value);
     this.userService.signUp(this.user).subscribe(
       data => {
-        console.log(data)
+        console.log(data);
       }
     )
   }

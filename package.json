@@ -2,7 +2,7 @@
   "name": "angularapp",
   "version": "0.0.0",
   "license": "MIT",
-  "angular-cli": {},
+  "angular/cli": {},
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,9 +12,9 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^2.3.1",
+    "@angular/common": "^2.4.10",
     "@angular/compiler": "^2.3.1",
-    "@angular/core": "^2.3.1",
+    "@angular/core": "^2.4.10",
     "@angular/forms": "^2.3.1",
     "@angular/http": "^2.3.1",
     "@angular/platform-browser": "^2.4.10",
@@ -29,6 +29,7 @@
     "i18n": "^0.8.3",
     "materialize-css": "^0.99.0",
     "ng2-dnd": "^4.2.0",
+    "ng2-youtube-player": "0.0.3",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"
@@ -46,7 +47,6 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
-    "ng2-youtube-player": "0.0.3",
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
