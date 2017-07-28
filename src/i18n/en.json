@@ -27,5 +27,7 @@
   "VIDEO": "Video",
   "IMAGE": "Image",
   "NEW_INSTRUCTION":"Instruction",
-  "PREVIEW": "Preview"
+  "PREVIEW": "Preview",
+  "ADD_GUIDE": "Add guide",
+  "NIGHT_MODE": "Nigth mode"
 }

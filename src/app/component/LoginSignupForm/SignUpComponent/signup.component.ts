@@ -1,15 +1,15 @@
 import {animate, Component, state, style, transition, trigger} from '@angular/core';
-import {User} from '../../entity/user';
-import {UserService} from '../../service/user.service';
+import {User} from '../../../entity/user';
+import {UserService} from '../../../service/user.service';
 
 declare var $: any;
 @Component({
-  selector: 'login-form',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'sign-up-form',
+  templateUrl: './signup.component.html',
+  // styleUrls: ['./signup.component.css'],
 
 })
-export class LoginComponent {
+export class SignupComponent {
   isLoginExist: boolean = false;
   isPasswordExist: boolean = false;
   isPasswordConfirm: boolean = false;
@@ -24,7 +24,7 @@ export class LoginComponent {
   constructor(private userService: UserService) {
   }
 
-  //to do: correct value to if
+  //TODO: correct value to if
   signUp(value: any) {
     if (true) {
       this.sendSignUpRequest(value);
@@ -107,7 +107,7 @@ export class LoginComponent {
     this.getUserForSignUp(value);
     this.userService.signUp(this.user).subscribe(
       data => {
-        console.log(data)
+        console.log(data);
       }
     )
   }

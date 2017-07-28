@@ -3,7 +3,6 @@
   margin: 5px 5px;
 }
 #wrapper_instr{
-  background-color: white;
   border-radius: 4px;
   padding: 15px;
   display: inline-block;
@@ -12,7 +11,6 @@
 }
 #redctn_btn{
   margin: 0;
-  background-color: #EEEEEE;
   border-radius: 4px;
   display: grid;
   width: 45px;
@@ -21,7 +19,6 @@
 #work_area{
   margin-top: 35px;
   padding: 5px 0px;
-  background-color: #EEEEEE;
   border-radius: 4px;
   overflow: auto;
   height:83vh;

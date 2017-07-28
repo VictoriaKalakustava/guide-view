@@ -9,7 +9,7 @@ import { UserService} from './service/user.service';
 import { AuthHttp} from 'angular2-jwt';
 import { authHttpServiceFactory} from './factories/auth.factory';
 import { HeaderComponent} from './component/HeaderComponent/header.component';
-import { LoginComponent} from './component/LogInComponent/login.component';
+import {LoginSignupComponent} from './component/LoginSignupForm/login.signup.component';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ProfileComponent} from './component/ProfileComponent/profile.component';
@@ -24,7 +24,9 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 import {ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
 import {VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
 import {SafePipe} from './service/safepipe.service';
-import {YoutubePlayerModule} from "ng2-youtube-player";
+import {SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
+import {LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
+// import {YoutubePlayerModule} from "ng2-youtube-player";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -35,6 +37,8 @@ export function HttpLoaderFactory(http: Http) {
     AppComponent,
     HeaderComponent,
     LoginComponent,
+    SignupComponent,
+    LoginSignupComponent,
     ProfileComponent,
     BackgroundComponent,
     DraganddropComponent,
@@ -42,7 +46,7 @@ export function HttpLoaderFactory(http: Http) {
     InstructionpageredComponent,
     TextareaComponent,
     ImageareaComponent,
-    VideoareaComponent,
+    // VideoareaComponent,
     SafePipe
   ],
   imports: [
@@ -51,7 +55,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-    YoutubePlayerModule,
+    // YoutubePlayerModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
