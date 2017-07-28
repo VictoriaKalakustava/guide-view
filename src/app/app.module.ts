@@ -26,7 +26,9 @@ import {VideoareaComponent} from './component/InstructionpageComponent/Videoarea
 import {SafePipe} from './service/safepipe.service';
 import {SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import {LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-// import {YoutubePlayerModule} from "ng2-youtube-player";
+import {YoutubePlayerModule} from "ng2-youtube-player";
+import { AuthenticationService} from "./service/authentication.service";
+import {AuthGuard} from "./service/guards/auth.guard";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -46,7 +48,7 @@ export function HttpLoaderFactory(http: Http) {
     InstructionpageredComponent,
     TextareaComponent,
     ImageareaComponent,
-    // VideoareaComponent,
+    VideoareaComponent,
     SafePipe
   ],
   imports: [
@@ -55,7 +57,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-    // YoutubePlayerModule,
+    YoutubePlayerModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -71,7 +73,10 @@ export function HttpLoaderFactory(http: Http) {
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
     },
-    UserService],
+    UserService,
+    AuthGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

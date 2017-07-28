@@ -1,6 +1,8 @@
 import {animate, Component, state, style, transition, trigger} from '@angular/core';
 import {User} from '../../../entity/user';
 import {UserService} from '../../../service/user.service';
+import {AuthenticationService} from "../../../service/authentication.service";
+import {Router} from "@angular/router";
 
 declare var $: any;
 @Component({
@@ -14,6 +16,11 @@ export class SignupComponent {
   isPasswordExist: boolean = false;
   isPasswordConfirm: boolean = false;
   passwordConfirm: String;
+
+  model: any = {};
+  loading = false;
+  error = '';
+
   private user: User = new User();
   formErrors = {
     mylogin: '',
@@ -21,7 +28,9 @@ export class SignupComponent {
     passwordConfirm: ''
   };
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private authenticationService: AuthenticationService,
+              private router: Router) {
   }
 
   //TODO: correct value to if
@@ -122,5 +131,18 @@ export class SignupComponent {
     }
   }
 
+  login() {
+    this.loading = true;
+    console.log(this.user.login + this.user.password);
+    this.authenticationService.login(this.user.login, this.user.password)
+      .subscribe(result => {
+        if (result === true) {
+          this.router.navigate(['/']);
+        } else {
+          this.error = 'Username or password is incorrect';
+          this.loading = false;
+        }
+      });
+  }
 
 }
