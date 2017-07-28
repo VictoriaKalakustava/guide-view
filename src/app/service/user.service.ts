@@ -1,33 +1,47 @@
 import {Injectable} from '@angular/core';
 import {User} from '../entity/user';
 import {CoreService} from './core/core.service';
-import {AuthHttp} from 'angular2-jwt';
 
 import 'rxjs/add/operator/map';
-import {Response, Headers } from '@angular/http';
+import {Response, Headers, Http, RequestOptions} from '@angular/http';
+import {AuthenticationService} from "./authentication.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class UserService extends CoreService {
+
   private user: User = new User();
 
-  constructor(private authHttp: AuthHttp) {
+  constructor(
+    private http: Http,
+    private authenticationService: AuthenticationService) {
     super();
   }
 
+  getUsers(): Observable<User[]> {
+    // add authorization header with jwt token
+    let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+    let options = new RequestOptions({ headers: headers });
+
+    // get users from api
+    return this.http.get('/api/users', options)
+      .map((response: Response) => response.json());
+  }
+
   isExistLogin(login: String) {
-    return this.authHttp.post(`${this.webServiceEndpoint}/sign-up/login/is-exist`, login)
+    return this.http.post(`${this.webServiceEndpoint}/sign-up/login/is-exist`, login)
       .map((response: Response) => response);
   }
 
   signUp(user: User) {
     console.log('signup');
-    return this.authHttp.post(`${this.webServiceEndpoint}/sign-up`, user)
+    return this.http.post(`${this.webServiceEndpoint}/sign-up`, user)
       .map((response: Response) => response);
   }
 
   updateProfile(user: User) {
     console.log('update');
-    return this.authHttp.post(`${this.webServiceEndpoint}/update-user`, user)
+    return this.http.post(`${this.webServiceEndpoint}/update-user`, user)
       .map((response: Response) => response);
   }
 
@@ -37,6 +51,6 @@ export class UserService extends CoreService {
     headers.append('Content-Type', 'application/json; charset=utf-8');
     headers.append('X-Requested-With', 'XMLHttpRequest');
     headers.append('Accept-Encoding', 'gzip, deflate');
-    return this.authHttp.get(`${this.webServiceEndpoint}/update-user?login=` + login);
+    return this.http.get(`${this.webServiceEndpoint}/update-user?login=` + login);
   }
 }

@@ -19,12 +19,14 @@ import { DraganddropComponent} from './component/DragandropComponent/draganddrop
 import { InstructionpageredComponent} from './component/InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component';
 import { InstructionpagepreComponent} from './component/InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component';
 import { DndModule} from 'ng2-dnd';
-import {TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
-import {InfiniteScrollModule} from 'angular2-infinite-scroll';
-import {ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
-import {VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
-import {SafePipe} from './service/safepipe.service';
-import {YoutubePlayerModule} from "ng2-youtube-player";
+import { TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
+import { InfiniteScrollModule} from 'angular2-infinite-scroll';
+import { ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
+import { VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
+import { SafePipe} from './service/safepipe.service';
+import { YoutubePlayerModule} from "ng2-youtube-player";
+import { AuthenticationService} from "./service/authentication.service";
+import {AuthGuard} from "./service/guards/auth.guard";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -67,7 +69,10 @@ export function HttpLoaderFactory(http: Http) {
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
     },
-    UserService],
+    UserService,
+    AuthGuard,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
