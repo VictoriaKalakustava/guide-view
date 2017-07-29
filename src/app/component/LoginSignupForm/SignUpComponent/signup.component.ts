@@ -16,11 +16,6 @@ export class SignupComponent {
   isPasswordExist: boolean = false;
   isPasswordConfirm: boolean = false;
   passwordConfirm: String;
-
-  model: any = {};
-  loading = false;
-  error = '';
-
   private user: User = new User();
   formErrors = {
     mylogin: '',
@@ -28,9 +23,7 @@ export class SignupComponent {
     passwordConfirm: ''
   };
 
-  constructor(private userService: UserService,
-              private authenticationService: AuthenticationService,
-              private router: Router) {
+  constructor(private userService: UserService) {
   }
 
   //TODO: correct value to if
@@ -129,20 +122,6 @@ export class SignupComponent {
       element.addClass('greenLine');
       element.removeClass('redLine');
     }
-  }
-
-  login() {
-    this.loading = true;
-    console.log(this.user.login + this.user.password);
-    this.authenticationService.login(this.user.login, this.user.password)
-      .subscribe(result => {
-        if (result === true) {
-          this.router.navigate(['/']);
-        } else {
-          this.error = 'Username or password is incorrect';
-          this.loading = false;
-        }
-      });
   }
 
 }
