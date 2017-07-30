@@ -26,6 +26,7 @@ import {VideoareaComponent} from './component/InstructionpageComponent/Videoarea
 import {SafePipe} from './service/safepipe.service';
 import {SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import {LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
+import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
 // import {YoutubePlayerModule} from "ng2-youtube-player";
 
 export function HttpLoaderFactory(http: Http) {
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(http: Http) {
     SignupComponent,
     LoginSignupComponent,
     ProfileComponent,
+    InstructionComponent,
     BackgroundComponent,
     DraganddropComponent,
     InstructionpagepreComponent,

@@ -29,5 +29,7 @@
   "NEW_INSTRUCTION":"Instruction",
   "PREVIEW": "Preview",
   "ADD_GUIDE": "Add guide",
-  "NIGHT_MODE": "Nigth mode"
+  "NIGHT_MODE": "Nigth mode",
+  "EDIT": "Edit",
+  "DELETE": "Delete"
 }
