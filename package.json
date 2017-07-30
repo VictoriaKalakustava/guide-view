@@ -23,7 +23,7 @@
     "@ngx-translate/core": "^7.1.0",
     "@ngx-translate/http-loader": "^0.1.0",
     "angular2-infinite-scroll": "^0.3.5",
-    "angular2-jwt": "^0.2.3",
+    "angular2-jwt": "^0.1.28",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "i18n": "^0.8.3",

@@ -9,7 +9,7 @@ import { UserService} from './service/user.service';
 import { AuthHttp} from 'angular2-jwt';
 import { authHttpServiceFactory} from './factories/auth.factory';
 import { HeaderComponent} from './component/HeaderComponent/header.component';
-import {LoginSignupComponent} from './component/LoginSignupForm/login.signup.component';
+import { LoginSignupComponent} from './component/LoginSignupForm/login.signup.component';
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ProfileComponent} from './component/ProfileComponent/profile.component';
@@ -19,16 +19,16 @@ import { DraganddropComponent} from './component/DragandropComponent/draganddrop
 import { InstructionpageredComponent} from './component/InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component';
 import { InstructionpagepreComponent} from './component/InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component';
 import { DndModule} from 'ng2-dnd';
-import {TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
-import {InfiniteScrollModule} from 'angular2-infinite-scroll';
-import {ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
-import {VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
-import {SafePipe} from './service/safepipe.service';
-import {SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
-import {LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-import {YoutubePlayerModule} from "ng2-youtube-player";
+import { TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
+import { InfiniteScrollModule} from 'angular2-infinite-scroll';
+import { ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
+import { VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
+import { SafePipe} from './service/safepipe.service';
+import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
+import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
+import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
-import {AuthGuard} from "./service/guards/auth.guard";
+import { AuthGuard} from "./service/guards/auth.guard";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
