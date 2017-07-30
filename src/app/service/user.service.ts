@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {AuthenticationService} from "./authentication.service";
 import {Observable} from "rxjs/Observable";
+import {AuthHttp} from "angular2-jwt";
 
 @Injectable()
 export class UserService extends CoreService {
@@ -14,6 +15,7 @@ export class UserService extends CoreService {
 
   constructor(
     private http: Http,
+    private authHttp: AuthHttp,
     private authenticationService: AuthenticationService) {
     super();
   }
@@ -47,10 +49,10 @@ export class UserService extends CoreService {
 
   getProfileByLogin(login: String) {
     console.log('it\'s get profile ');
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    headers.append('X-Requested-With', 'XMLHttpRequest');
-    headers.append('Accept-Encoding', 'gzip, deflate');
-    return this.http.get(`${this.webServiceEndpoint}/update-user?login=` + login);
+    console.log(JSON.parse(localStorage.getItem('currentUser')).token.split(' ')[1]);
+    console.log(JSON.parse(localStorage.getItem('currentUser')).username);
+    let body =  {username: login};
+    return this.authHttp.post(`${this.webServiceEndpoint}get-user`,body)
+      .map((response: Response) => response.json());
   }
 }

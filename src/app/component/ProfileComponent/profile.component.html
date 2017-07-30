@@ -6,7 +6,7 @@
       <ul class="nav nav-pills nav-stacked admin-menu">
         <li class="active"><a href="" data-target-id="profile"><i class="glyphicon glyphicon-user"></i> {{"PROFILE"|
           translate}}</a></li>
-        <li><a href="" (click)="getUser()" data-target-id="edit_profile"><i class="glyphicon glyphicon-edit"></i> {{"EDIT_PROFILE"|
+        <li><a href="" data-target-id="edit_profile"><i class="glyphicon glyphicon-edit"></i> {{"EDIT_PROFILE"|
           translate}}</a></li>
         <li><a href="" data-target-id="profile_article"><i class="glyphicon glyphicon-list-alt"></i>
           {{"PROFILE_ARTICLE"| translate}}</a></li>
@@ -36,7 +36,7 @@
 
         <div class="panel-body jumbotron" >
                     <span>
-                        <h1 class="panel-title pull-left" style="font-size:30px;">John Doe <small>example@pods.tld</small> <i
+                        <h1 class="panel-title pull-left" style="font-size:30px;">{{firstname}} {{lastname}} <small>{{username}}</small> <i
                           class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip"
                           data-placement="bottom" title="John Doe is sharing with you"></i></h1>
                     </span>
@@ -131,31 +131,31 @@
               <app-draganddrop-form></app-draganddrop-form>
             </div>
 
-            <form class="form-horizontal jumbotron" style="padding-bottom: 10px; padding-top: 10px; padding-right: 0">
+            <form ([formGroupName])="editProfileForm" class="form-horizontal jumbotron" style="padding-bottom: 10px; padding-top: 10px; padding-right: 0">
               <fieldset>
                 <legend style="margin-bottom: 7px; margin-left: 20px">Edit profile info</legend>
                 <div class="col-lg-11" style="margin-left: 0; width: 100%">
                   <div class="col-lg-5">
                     <div class="form-group">
                       <div>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="New email">
+                        <input type="text" class="form-control" value={{email}} id="inputEmail"  placeholder="New email">
                       </div>
                     </div>
                     <div class="form-group">
                       <div>
-                        <input type="text" class="form-control" id="inputLogin" placeholder="New login">
+                        <input type="text" class="form-control" value={{username}} id="inputLogin"  placeholder="New login">
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-5 col-lg-offset-1">
                     <div class="form-group">
                       <div>
-                        <input type="text" class="form-control" id="inputPassword" placeholder="New password">
+                        <input type="password" class="form-control" value={{password}} id="inputPassword" placeholder="New password">
                       </div>
                     </div>
                     <div class="form-group">
                       <div>
-                        <input type="text" class="form-control" id="inputLConfirmPassword" placeholder="Confirm password">
+                        <input type="password" class="form-control" value={{password}} id="inputLConfirmPassword" placeholder="Confirm password">
                       </div>
                     </div>
                   </div>

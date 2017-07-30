@@ -1,16 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
-
 import { ProfileComponent } from './component/ProfileComponent';
-import {LoginSignupComponent} from "./component/LoginSignupForm/login.signup.component";
-import {SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
-import {LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-/*import { LoginComponent } from './login/index';*/
+import { AuthGuard} from "./service/guards/auth.guard";
+import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
 
 const appRoutes: Routes = [
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-
-
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

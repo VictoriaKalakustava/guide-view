@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response} from '@angular/http';
+import {Http, RequestOptions, Response, Headers} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {CoreService} from "./core/core.service";
@@ -16,15 +16,16 @@ export class AuthenticationService extends CoreService{
   }
 
   login(username: string, password: string): Observable<boolean> {
+    console.log('login to server');
     console.log(JSON.stringify({ username: username, password: password }));
     return this.http.post(`${this.webServiceEndpoint}/login`, JSON.stringify({ username: username, password: password }))
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
-        let token = response.json() && response.json().token;
+        console.log(response.headers.get('Authorization'));
+        let token = response.headers.get('Authorization');
         if (token) {
           // set token property
           this.token = token;
-
           // store username and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
 
