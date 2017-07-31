@@ -3,18 +3,18 @@
     <input type="text" name="username"
            id="username-signup" tabindex="1" [(ngModel)]="user.login"
            class="form-control" (keyup)="checkLogin()" (blur)="checkLogin()"
-           placeholder="Username" value="" required="">
+           placeholder="{{'USERNAME'|translate}}" value="" required="">
     <span class="help-block" *ngIf="formErrors.mylogin" style="color: red">
                 {{ formErrors.mylogin | translate}}
               </span>
   </div>
   <div class="form-group">
     <input type="email" ngModel name="email" id="email" tabindex="2" class="form-control"
-           placeholder="Email Address" value="">
+           placeholder="{{'EMAIL'| translate}}" value="">
   </div>
   <div class="form-group">
     <input type="text" name="password" [(ngModel)]="user.password" id="password-signup" tabindex="3" class="form-control"
-           placeholder="Password" (keyup)="checkPassword()" (blur)="checkPassword()" minlength="8" >
+           placeholder="{{'PASSWORD'|translate}}" (keyup)="checkPassword()" (blur)="checkPassword()" minlength="8" >
   </div>
   <span class="help-block" *ngIf="formErrors.password" style="color: red">
                 {{ formErrors.password | translate}}
@@ -22,7 +22,7 @@
   <div class="form-group">
     <input type="password" [(ngModel)]="passwordConfirm" (keyup)="checkPasswordConfirm()" (blur)="checkPasswordConfirm()"
            name="passwordConfirm" id="password-confirm" tabindex="4"
-           class="form-control" placeholder="Confirm Password">
+           class="form-control" placeholder="{{'CONFIRM_PASSWORD'|translate}}">
   </div>
   <span class="help-block" *ngIf="formErrors.passwordConfirm" style="color: red">
                 {{ formErrors.passwordConfirm | translate}}
@@ -30,11 +30,11 @@
 
   <div class="form-group">
     <input type="text" ngModel name="name" id="firstname" tabindex="5" class="form-control"
-           placeholder="Name" value="" required="">
+           placeholder="{{'NAME'|translate}}" value="" required="">
   </div>
   <div class="form-group">
     <input type="text" ngModel name="surname" id="lastname" tabindex="6" class="form-control"
-           placeholder="Surname" value="" required="">
+           placeholder="{{'LASTNAME'|translate}}" value="" required="">
   </div>
   <div class="form-group">
 
@@ -42,8 +42,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <button type="submit" [disabled]="!isLoginExist || !isPasswordExist || !isPasswordConfirm" name="register-submit" id="register-submit" tabindex="7"
-                  class="btn btn-info btn-block" value="Register Now" style="margin: 0 0 0 0; border: 0">Sign Up</button>
-
+                  class="btn btn-info btn-block" value="Register Now" style="margin: 0 0 0 0; border: 0">{{'SIGN_UP'| translate}}</button>
         </div>
       </div>
     </div>
