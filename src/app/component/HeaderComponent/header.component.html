@@ -36,13 +36,21 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <form class="navbar-form">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
+          <form class="navbar-form" >
+            <button *ngIf="authGuard.canActivate() != true" type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
               <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{"LOGIN" | translate}}
+            </button>
+          </form>
+          <form class="navbar-form" >
+            <button *ngIf="authGuard.canActivate() == true" type="button" class="btn btn-info" data-toggle="modal" data-target="#logout-form-id">
+              <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{"LOGOUT" | translate}}
             </button>
           </form>
           <div class="modal fade" id="login-form-id">
               <login-signup-form></login-signup-form>
+          </div>
+          <div class="modal fade" id="logout-form-id">
+            <logout-form></logout-form>
           </div>
         </li>
       </ul>

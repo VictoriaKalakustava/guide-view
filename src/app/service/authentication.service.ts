@@ -18,7 +18,7 @@ export class AuthenticationService extends CoreService{
   login(username: string, password: string): Observable<boolean> {
     console.log('login to server');
     console.log(JSON.stringify({ username: username, password: password }));
-    return this.http.post(`${this.webServiceEndpoint}/login`, JSON.stringify({ username: username, password: password }))
+    return this.http.post(`${this.webServiceEndpoint}login`, JSON.stringify({ username: username, password: password }))
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         console.log(response.headers.get('Authorization'));

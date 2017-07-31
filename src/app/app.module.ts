@@ -29,7 +29,8 @@ import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.
 import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
-import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
+import { InstructionComponent} from "./component/InstructionComponent/instruction.component";
+import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -50,7 +51,8 @@ export function HttpLoaderFactory(http: Http) {
     InstructionpageredComponent,
     TextareaComponent,
     ImageareaComponent,
-    //VideoareaComponent,
+    VideoareaComponent,
+    LogoutComponent,
     SafePipe
   ],
   imports: [
@@ -59,7 +61,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-    //YoutubePlayerModule,
+    YoutubePlayerModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

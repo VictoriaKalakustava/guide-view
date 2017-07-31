@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from "@angular/platform-browser";
+import {AuthGuard} from "../../service/guards/auth.guard";
 
 @Component({
   selector: 'app-header-form',
@@ -11,6 +12,7 @@ import { DOCUMENT } from "@angular/platform-browser";
 export class HeaderComponent {
   mode: Boolean = false;
   constructor(
+    private authGuard: AuthGuard,
     private route: ActivatedRoute,
     private router: Router,
   ) { this.changeMode();}
