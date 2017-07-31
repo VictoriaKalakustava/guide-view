@@ -15,7 +15,7 @@ export class LoginComponent {
 
   model: any = {};
   loading = false;
-  error = '';
+  error = false;
   private user: User = new User();
 
   constructor(private userService: UserService,
@@ -30,10 +30,9 @@ export class LoginComponent {
         if (result === true) {
           $('#hidden-submit').click();
           this.router.navigate(['/profile']);
-        } else {
-          this.error = 'Username or password is incorrect';
-          this.loading = false;
+          return true;
         }
       });
+    this.error = true;
   }
 }

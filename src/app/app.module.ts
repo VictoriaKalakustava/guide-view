@@ -29,9 +29,9 @@ import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.
 import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
-import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
-import {StepComponent} from "./component/StepComponent/step.component";
-import {LogoutComponent} from "./component/LogoutComponent/logout.component";
+import { InstructionComponent} from "./component/InstructionComponent/instruction.component";
+import { StepComponent} from "./component/StepComponent/step.component";
+import { LogoutComponent} from "./component/LogoutComponent/logout.component";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
