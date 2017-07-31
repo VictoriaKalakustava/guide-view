@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#">Something</a></li>
-        <li><a [routerLink]="['profile']" id="go_to_profile">Profile</a></li>
+        <li><a [routerLink]="['profile']" >Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -37,12 +37,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <form class="navbar-form" >
-            <button *ngIf="authGuard.canActivate() != true" type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
+            <button id="login-button-header" *ngIf="authGuard.isActivate() != true" type="button" class="btn btn-info" data-toggle="modal" data-target="#login-form-id">
               <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{"LOGIN" | translate}}
             </button>
           </form>
           <form class="navbar-form" >
-            <button *ngIf="authGuard.canActivate() == true" type="button" class="btn btn-info" data-toggle="modal" data-target="#logout-form-id">
+            <button *ngIf="authGuard.isActivate() == true" type="button" class="btn btn-info" data-toggle="modal" data-target="#logout-form-id">
               <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{"LOGOUT" | translate}}
             </button>
           </form>
