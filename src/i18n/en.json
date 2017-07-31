@@ -1,8 +1,8 @@
 {
-  "LOGIN": "Login",
+  "LOGIN": "Log In",
   "NAME" : "Name",
   "LASTNAME": "Lastname",
-  "EMAIL": "email",
+  "EMAIL": "Email address",
   "USERNAME": "Username",
   "ABOUT_ME": "About me",
   "PROFILE": "Profile",
@@ -34,5 +34,16 @@
   "DELETE": "Delete",
   "LOGOUT_CONFIRM": "Do you realy want to leave?",
   "YES": "Yes",
-  "NO": "No"
+  "NO": "No",
+  "INCORRECT_PASS": "Incorrect username or password.",
+  "REMEMBER_ME": "Remember me",
+  "FORGOT_PASS":"Forgot password?",
+  "PASSWORD": "Password",
+  "CONFIRM_PASSWORD":"Confirm password",
+  "SIGN_UP":"Sign Up",
+  "REGISTER":"Register",
+  "NIGHT_MODE":"Night mode",
+  "MENU":"Menu",
+  "PROFILE":"Profile",
+  "SEARCH":"Search"
 }

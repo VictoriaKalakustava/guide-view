@@ -1,22 +1,27 @@
 
 <form id="login-form" #form="ngForm"  (ngSubmit)="login(form.value)">
   <div class="form-group">
-    <input type="text" [(ngModel)]="user.login" name="username" id="username" tabindex="1" class="form-control" placeholder="Username"
-           value="">
+    <input type="text" [(ngModel)]="user.login" name="username" id="username" tabindex="1" class="form-control"
+           placeholder="{{'USERNAME'| translate}}" value="">
   </div>
   <div class="form-group">
     <input type="password" [(ngModel)]="user.password" name="password" id="password" tabindex="2" class="form-control"
-           placeholder="Password">
+           placeholder="{{'PASSWORD'| translate}}">
+  </div>
+  <div class="form-group" id="error-msg" *ngIf="error" >
+    <div style="color: red; margin-left: 10px;">
+      {{"INCORRECT_PASS"| translate}}
+    </div>
   </div>
   <div class="form-group text-center">
     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-    <label for="remember"> Remember Me</label>
+    <label for="remember"> {{"REMEMBER_ME"| translate}}</label>
   </div>
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-               class="btn btn-info btn-block" value="Log In">
+               class="btn btn-info btn-block" value="{{'LOGIN'| translate}}">
       </div>
     </div>
   </div>
@@ -24,7 +29,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="text-center">
-          <a href="" tabindex="5" class="forgot-password">Forgot Password?</a>
+          <a href="" tabindex="5" class="forgot-password">{{"FORGOT_PASS"| translate}}</a>
         </div>
       </div>
     </div>
