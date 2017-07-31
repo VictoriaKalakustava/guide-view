@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {InstructionpagepreComponent} from "../InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component";
+import {Component} from '@angular/core';
 import Step from "../../entity/step";
+import {InstructionpageredComponent} from "../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component";
+
 
 @Component({
   selector: 'instruction-component',
@@ -8,7 +9,7 @@ import Step from "../../entity/step";
   styleUrls: ['./instruction.component.css', '../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component.css'],
 })
 
-export class InstructionComponent implements OnInit{
+export class InstructionComponent {
   containers: Step[];
 
   constructor() {
@@ -27,11 +28,5 @@ export class InstructionComponent implements OnInit{
     this.containers.push(new Step("c", "c"));
     this.containers.push(new Step("d", "d"));
     console.log("n init " + this.containers);
-
-
-  }
-
-  ngOnInit() {
-
   }
 }
