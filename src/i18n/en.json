@@ -31,5 +31,8 @@
   "ADD_GUIDE": "Add guide",
   "NIGHT_MODE": "Nigth mode",
   "EDIT": "Edit",
-  "DELETE": "Delete"
+  "DELETE": "Delete",
+  "LOGOUT_CONFIRM": "Do you realy want to leave?",
+  "YES": "Yes",
+  "NO": "No"
 }

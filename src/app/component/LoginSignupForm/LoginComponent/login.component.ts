@@ -4,6 +4,7 @@ import {AuthenticationService} from "../../../service/authentication.service";
 import {UserService} from "../../../service/user.service";
 import {User} from "../../../entity/user";
 
+declare var $: any;
 @Component({
   selector: 'login-form',
   templateUrl: './login.component.html',
@@ -27,7 +28,8 @@ export class LoginComponent {
     this.authenticationService.login(this.user.login, this.user.password)
       .subscribe(result => {
         if (result === true) {
-          this.router.navigate(['/']);
+          $('#hidden-submit').click();
+          this.router.navigate(['/profile']);
         } else {
           this.error = 'Username or password is incorrect';
           this.loading = false;

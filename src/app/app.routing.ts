@@ -6,6 +6,7 @@ import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.
 const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

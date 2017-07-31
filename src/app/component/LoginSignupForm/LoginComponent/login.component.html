@@ -1,5 +1,5 @@
 
-<form id="login-form" #form="ngForm"  (ngSubmit)="login(form.value)" >
+<form id="login-form" #form="ngForm"  (ngSubmit)="login(form.value)">
   <div class="form-group">
     <input type="text" [(ngModel)]="user.login" name="username" id="username" tabindex="1" class="form-control" placeholder="Username"
            value="">
@@ -29,4 +29,5 @@
       </div>
     </div>
   </div>
+  <button style="display: none" id="hidden-submit" data-dismiss="modal"></button>
 </form>
