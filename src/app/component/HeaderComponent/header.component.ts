@@ -24,7 +24,7 @@ export class HeaderComponent {
         .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/solar/bootstrap.min.css");
     } else {
       document.getElementById("bootswatch")
-        .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css");
+        .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css");
     }
   }
 
