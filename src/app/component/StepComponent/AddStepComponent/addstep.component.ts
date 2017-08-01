@@ -4,8 +4,8 @@ import {EntityPageInst} from '../../../entity/entitypageinst';
 
 @Component({
   selector: 'app-instruction-red-form',
-  templateUrl: './instructionpagered.component.html',
-  styleUrls: ['./instructionpagered.component.css'],
+  templateUrl: './addstep.component.html',
+  styleUrls: ['./addstep.component.css'],
 })
 
 export class InstructionpageredComponent {

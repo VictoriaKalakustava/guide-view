@@ -1,12 +1,12 @@
 import {Component} from '@angular/core';
 import Step from "../../entity/step";
-import {InstructionpageredComponent} from "../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component";
+import {InstructionpageredComponent} from "../StepComponent/AddStepComponent/addstep.component";
 
 
 @Component({
   selector: 'instruction-component',
   templateUrl: './instruction.component.html',
-  styleUrls: ['./instruction.component.css', '../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component.css'],
+  styleUrls: ['./instruction.component.css', '../StepComponent/AddStepComponent/addstep.component.css'],
 })
 
 export class InstructionComponent {

@@ -5,7 +5,7 @@ import Step from "../../../entity/step";
 @Component({
   selector: 'add-instruction-component',
   templateUrl: './add.instruction.component.html',
-  styleUrls: ['./add.instruction.component.css', '../../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component.css',
+  styleUrls: ['./add.instruction.component.css', '../../StepComponent/AddStepComponent/addstep.component.css',
   '../instruction.component.css'],
 })
 

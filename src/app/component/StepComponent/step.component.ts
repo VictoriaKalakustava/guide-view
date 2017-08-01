@@ -7,7 +7,7 @@ import {AppComponent} from "../../app.component";
 @Component({
   selector: 'step-component',
   templateUrl: './step.component.html',
-  styleUrls: ['./step.component.css', '../InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component.css'],
+  styleUrls: ['./step.component.css', './AddStepComponent/addstep.component.css'],
 })
 
 export class StepComponent implements OnInit{

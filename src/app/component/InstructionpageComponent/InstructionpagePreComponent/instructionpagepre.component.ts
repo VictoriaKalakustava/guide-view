@@ -3,7 +3,7 @@ import Step from "../../../entity/step";
 @Component({
   selector: 'app-instruction-pre-form',
   templateUrl: './instructionpagepre.component.html',
-  styleUrls: ['./instructionpagepre.component.css', '../IntructionpageRedComponent/instructionpagered.component.css'],
+  styleUrls: ['./instructionpagepre.component.css', '../../StepComponent/AddStepComponent/addstep.component.css'],
 })
 
 export class InstructionpagepreComponent{

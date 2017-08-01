@@ -16,13 +16,13 @@ import { ProfileComponent} from './component/ProfileComponent/profile.component'
 import { routing} from './app.routing';
 import { BackgroundComponent} from './component/BackgroundComponent/background.component';
 import { DraganddropComponent} from './component/DragandropComponent/draganddrop.component';
-import { InstructionpageredComponent} from './component/InstructionpageComponent/IntructionpageRedComponent/instructionpagered.component';
+import { InstructionpageredComponent} from './component/StepComponent/AddStepComponent/addstep.component';
 import { InstructionpagepreComponent} from './component/InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component';
 import { DndModule} from 'ng2-dnd';
-import { TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
+import { TextareaComponent} from './component/TextareaComponent/textarea.component';
 import { InfiniteScrollModule} from 'angular2-infinite-scroll';
-import { ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
-import { VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
+import { ImageareaComponent} from './component/ImageareaComponent/imagearea.component';
+import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
 import { SafePipe} from './service/safepipe.service';
 import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
@@ -34,6 +34,7 @@ import {StepComponent} from "./component/StepComponent/step.component";
 import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 import {StepService} from "./service/step.service";
 import {Ng2CloudinaryModule} from "ng2-cloudinary";
+import {FileUploadModule} from "ng2-file-upload";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
