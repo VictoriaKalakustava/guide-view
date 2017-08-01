@@ -1,8 +1,8 @@
 {
-  "LOGIN": "Log In",
+  "LOGIN": "Login",
   "NAME" : "Name",
   "LASTNAME": "Lastname",
-  "EMAIL": "Email address",
+  "EMAIL": "email",
   "USERNAME": "Username",
   "ABOUT_ME": "About me",
   "PROFILE": "Profile",
@@ -42,8 +42,7 @@
   "CONFIRM_PASSWORD":"Confirm password",
   "SIGN_UP":"Sign Up",
   "REGISTER":"Register",
-  "NIGHT_MODE":"Night mode",
   "MENU":"Menu",
-  "PROFILE":"Profile",
-  "SEARCH":"Search"
+  "SEARCH":"Search",
+  "LANGUAGE": "Language"
 }

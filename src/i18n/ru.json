@@ -2,8 +2,8 @@
   "LOGIN": "Войти",
   "NAME": "Имя",
   "LASTNAME": "Фамилия",
-  "EMAIL": "Электронная почта",
-  "USERNAME": "Логин",
+  "EMAIL": "email",
+  "USERNAME": "Никнейм",
   "ABOUT_ME": "О себе",
   "PROFILE": "Профиль",
   "PHOTO": "Фото",
@@ -40,8 +40,7 @@
   "CONFIRM_PASSWORD":"Подтвердите пароль",
   "SIGN_UP":"Зарегистрироваться",
   "REGISTER":"Регистрация",
-  "NIGHT_MODE":"Ночной режим",
   "MENU":"Меню",
-  "PROFILE":"Профиль",
-  "SEARCH":"Поиск"
+  "SEARCH":"Поиск",
+  "LANGUAGE": "Язык"
 }
