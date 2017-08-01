@@ -1,4 +1,4 @@
-<div class="container" id="profile_component">
+<div class="container" id="profile_component" >
 
   <div class="row" style="height: 100%;">
 
@@ -41,8 +41,11 @@
             <div class="panel-body ">
               <div class="media">
                 <div align="center">
-                  <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px"
+                  <img *ngIf="!user.image" class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px"
                        height="300px">
+                  <div style="width: 300px; height: 300px; position: relative; top: -30%; left: -50%;">
+                   <cl-image *ngIf="user.image" public-id={{user.image}} cloud-name="dhimzt8vr"></cl-image>
+                  </div>
                 </div>
               </div>
             </div>
@@ -54,9 +57,9 @@
 
           <div class="panel-body jumbotron" >
                       <span>
-                          <h1 class="panel-title pull-left" style="font-size:30px;">{{firstname}} {{lastname}} <small>{{username}}</small> <i
+                          <h1 class="panel-title pull-left" style="font-size:30px;">{{user.name}} {{user.surname}} <small>{{username}}</small> <i
                             class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip"
-                            data-placement="bottom" title="John Doe is sharing with you"></i></h1>
+                            data-placement="bottom" ></i></h1>
                       </span>
             <br><br>
             <i class="fa fa-tags" aria-hidden="true"></i> <a href="/tags/diaspora" class="tag">#diaspora</a> <a
@@ -126,7 +129,7 @@
 
         <div class="panel" id="edit_form">
 
-          <form #form="ngForm" (change)="updateProfile(form.value)">
+          <form #form="ngForm">
 
             <div id="draganddrop" class="panel">
               <div class="panel-body" style="padding: 0;">
@@ -136,17 +139,18 @@
                     <div class="panel-body">
                       <div class="media">
                         <div align="center">
-                          <img class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png"
+                          <img *ngIf="!user.image" class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png"
                                width="300px" height="300px">
+                          <div style="width: 300px; height: 300px; position: relative; top: -30%; left: -50%;">
+                          <cl-image id="cloud-img" *ngIf="user.image" public-id={{user.image}} cloud-name="dhimzt8vr"></cl-image>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-
-
                 </div>
-                <app-draganddrop-form></app-draganddrop-form>
+                <app-draganddrop-form (upImg)="updateImg($event)" ></app-draganddrop-form>
               </div>
 
               <form class="form-horizontal jumbotron" style="padding-bottom: 10px; padding-top: 10px; padding-right: 0">
@@ -156,19 +160,20 @@
                     <div class="col-lg-5">
                       <div class="form-group">
                         <div>
-                          <input type="text" class="form-control" [(ngModel)]="user.email" name="email" id="inputEmail"  placeholder="New email">
+                          <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.email" name="email" id="inputEmail"  placeholder="New email">
                         </div>
                       </div>
                       <div class="form-group">
                         <div>
-                          <input type="text" class="form-control" [(ngModel)]="user.login" name="login" id="inputLogin"  placeholder="New login">
+                          <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.login" name="login" id="inputLogin"  placeholder="New login">
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-5 col-lg-offset-1">
                       <div class="form-group">
                         <div>
-                          <input type="password" class="form-control" [(ngModel)]="user.password" name="password" id="inputPassword" placeholder="New password">
+                          <!--TODO make change only if pass confirm-->
+                          <input (change)="updateProfile()" type="password" class="form-control" [(ngModel)]="user.password" name="password" id="inputPassword" placeholder="New password">
                         </div>
                       </div>
                       <div class="form-group">

@@ -32,6 +32,9 @@ import { AuthGuard} from "./service/guards/auth.guard";
 import { InstructionComponent} from "./component/InstructionComponent/instruction.component";
 import { StepComponent} from "./component/StepComponent/step.component";
 import { LogoutComponent} from "./component/LogoutComponent/logout.component";
+import {Ng2CloudinaryModule} from "ng2-cloudinary";
+import {FileUploadModule} from "ng2-file-upload";
+
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -64,6 +67,8 @@ export function HttpLoaderFactory(http: Http) {
     HttpModule,
     routing,
     YoutubePlayerModule,
+    Ng2CloudinaryModule,
+    FileUploadModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {

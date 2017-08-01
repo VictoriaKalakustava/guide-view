@@ -1,22 +1,19 @@
 <div class="container jumbotron" style="width:100%; padding-top: 10px; padding-bottom: 10px">
-    <div class="col-md-8"  >
-      <div id="dropandproggress">
-        <!-- Drop Zone -->
-        <h4>Or drag and drop files below</h4>
-        <form method="post" action="#" id="#">
-          <div class="form-group files">
-            <input type="file" class="form-control" multiple="">
-          </div>
-        </form>
-
-        <!-- Progress Bar -->
-        <div class="progress progress-striped">
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-            <span class="sr-only">60% Complete</span>
-          </div>
+  <div class="col-md-8"  >
+    <div id="dropandproggress">
+      <!-- Drop Zone -->
+      <h4>Or drag and drop files below</h4>
+      <form id="input-form-cloud">
+        <div class="form-group files">
+          <input type="file" ng2FileSelect [(uploader)]="uploader" class="form-control" multiple=""/>
         </div>
-      </div>
-
-
+      </form>
+      <!--&lt;!&ndash; Progress Bar &ndash;&gt;
+      <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div>-->
     </div>
+  </div>
 </div> <!-- /container -->
