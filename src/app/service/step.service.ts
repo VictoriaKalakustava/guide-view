@@ -24,12 +24,7 @@ export class StepService extends CoreService {
     console.log("getStepService");
     let body = {id: id};
     console.log(body);
-    return this.authHttp.post(`${this.webServiceEndpoint}step/get-by-id`, JSON.stringify({ id: id}))
+    return this.authHttp.get(`${this.webServiceEndpoint}step/get-by-id/1`)
       .map((response: Response) => response.json());
   }
-  // getStep(id: number) {
-  //   console.log("getStepService");
-  //   return this.authHttp.get(`${this.webServiceEndpoint}step/get-by-id`)
-  //     .map((response: Response) => response.json());
-  // }
 }

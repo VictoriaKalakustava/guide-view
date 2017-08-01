@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from "@angular/platform-browser";
 import {AuthGuard} from "../../service/guards/auth.guard";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-header-form',
@@ -23,7 +24,12 @@ export class HeaderComponent {
         .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/solar/bootstrap.min.css");
     } else {
       document.getElementById("bootswatch")
-        .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css");
+        .setAttribute("href", "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/simplex/bootstrap.min.css");
     }
+  }
+
+  @Output() onChanged = new EventEmitter<string>();
+  changeLang(lang) {
+    this.onChanged.emit(lang);
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../service/user.service";
 import {StepService} from "../../service/step.service";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'step-component',
@@ -23,8 +24,6 @@ export class StepComponent implements OnInit{
       this.stepService.getStep(this.id).subscribe(res => console.log(res));
     });
   }
-
-
 
   ngOnDestroy() {
     this.sub.unsubscribe();
