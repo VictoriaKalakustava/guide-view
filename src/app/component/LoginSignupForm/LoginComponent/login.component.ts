@@ -3,7 +3,6 @@ import {Router} from "@angular/router";
 import {AuthenticationService} from "../../../service/authentication.service";
 import {UserService} from "../../../service/user.service";
 import {User} from "../../../entity/user";
-import {loadavg} from "os";
 
 declare var $: any;
 @Component({

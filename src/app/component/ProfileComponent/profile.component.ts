@@ -17,34 +17,19 @@ export class ProfileComponent {
     this.userService.getProfileByLogin(this.username).subscribe(
       data => {
         this.user = data;
-        this.username = this.user.login;
-        this.firstname = this.user.name;
-        this.lastname = this.user.surname;
-        this.email = this.user.email;
-        this.sex = this.user.sex;
-        this.password = this.user.password;
       },
       error => {
         console.log('error in getProfileByLogin');
       });
   }
-
-
-  editProfileForm: FormGroup;
+  username: string;
   private user: User = new User;
 
-  username: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  sex: string;
-  password: string;
-
   updateProfile(value: any) {
+    console.log(JSON.stringify(this.user));
     this.userService.updateProfile(this.user).subscribe(
       data => {console.log(data); }
     );
-    console.log('run update profile' + this.user);
   }
 
   getUser() { }

@@ -31,28 +31,30 @@ export class UserService extends CoreService {
   }
 
   isExistLogin(login: String) {
-    return this.http.post(`${this.webServiceEndpoint}/sign-up/login/is-exist`, login)
+    return this.http.post(`${this.webServiceEndpoint}sign-up/login/is-exist`, login)
       .map((response: Response) => response);
   }
 
   signUp(user: User) {
     console.log('signup');
-    return this.http.post(`${this.webServiceEndpoint}/sign-up`, user)
+    return this.http.post(`${this.webServiceEndpoint}sign-up`, user)
       .map((response: Response) => response);
   }
 
   updateProfile(user: User) {
-    console.log('update');
-    return this.http.post(`${this.webServiceEndpoint}/update-user`, user)
+    console.log(JSON.stringify(user));
+    return this.authHttp.post(`${this.webServiceEndpoint}update-user`, user)
       .map((response: Response) => response);
   }
 
   getProfileByLogin(login: String) {
-    console.log('it\'s get profile ');
-    console.log(JSON.parse(localStorage.getItem('currentUser')).token.split(' ')[1]);
-    console.log(JSON.parse(localStorage.getItem('currentUser')).username);
     let body =  {username: login};
     return this.authHttp.post(`${this.webServiceEndpoint}get-user`,body)
       .map((response: Response) => response.json());
   }
+
+  /*getProfileByLogin(login: String) {
+    return this.authHttp.get(`${this.webServiceEndpoint}get-user/get/1`)
+      .map((response: Response) => response.json());
+  }*/
 }

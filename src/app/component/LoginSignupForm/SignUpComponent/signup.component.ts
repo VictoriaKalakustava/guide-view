@@ -16,6 +16,7 @@ export class SignupComponent {
   isPasswordExist: boolean = false;
   isPasswordConfirm: boolean = false;
   passwordConfirm: String;
+
   private user: User = new User();
   formErrors = {
     mylogin: '',
