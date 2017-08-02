@@ -29,9 +29,11 @@
                  class="" >
               <div *ngFor="let container of containers; let i = index" dnd-sortable [sortableIndex]="i">
                 <div class="col-md-4">
-                  <div class="panel panel-success ">
-                    <div class="panel-heading">Step {{i}}</div>
-                    <div class="panel-body">{{container.title}}</div>
+                  <div class="panel panel-muted ">
+                    <div class="panel-body">
+                      <a class="text-muted" style="font-size: 30px;;"><b>{{i+1}} </b></a>
+                      <a>{{container.title}} </a>
+                    </div>
                   </div>
                 </div>
 

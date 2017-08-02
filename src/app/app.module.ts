@@ -22,11 +22,11 @@ import { DndModule} from 'ng2-dnd';
 import { TextareaComponent} from './component/InstructionpageComponent/TextareaComponent/textarea.component';
 import { InfiniteScrollModule} from 'angular2-infinite-scroll';
 import { ImageareaComponent} from './component/InstructionpageComponent/ImageareaComponent/imagearea.component';
-import { VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
+//import { VideoareaComponent} from './component/InstructionpageComponent/VideoareaComponent/videoarea.component';
 import { SafePipe} from './service/safepipe.service';
 import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-import { YoutubePlayerModule} from "ng2-youtube-player";
+//import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
 import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
@@ -34,6 +34,7 @@ import {StepComponent} from "./component/StepComponent/step.component";
 import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 import {StepService} from "./service/step.service";
 import {Ng2CloudinaryModule} from "ng2-cloudinary";
+import {AddInstructionComponent} from "./component/InstructionComponent/AddInstructionComponent/add.instruction.component";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
+    AddInstructionComponent,
     HeaderComponent,
     LoginComponent,
     SignupComponent,
@@ -55,7 +57,7 @@ export function HttpLoaderFactory(http: Http) {
     StepComponent,
     TextareaComponent,
     ImageareaComponent,
-    VideoareaComponent,
+   // VideoareaComponent,
     LogoutComponent,
     SafePipe
   ],
@@ -65,9 +67,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-    YoutubePlayerModule,
-    Ng2CloudinaryModule,
-    FileUploadModule,
+   // YoutubePlayerModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -84,6 +84,7 @@ export function HttpLoaderFactory(http: Http) {
       deps: [Http, RequestOptions]
     },
     UserService,
+    StepService,
     AuthGuard,
     AuthenticationService
   ],

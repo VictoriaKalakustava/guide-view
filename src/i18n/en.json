@@ -44,5 +44,12 @@
   "REGISTER":"Register",
   "MENU":"Menu",
   "SEARCH":"Search",
-  "LANGUAGE": "Language"
+  "LANGUAGE": "Language",
+  "ADD_TAG": "Add tag",
+  "ADD_STEP": "Add step",
+  "STEP": "Step",
+  "TITLE": "Title",
+  "NEW_TAG": "New tag",
+  "SAVE": "Save",
+  "CANCEL": "Cancel"
 }
