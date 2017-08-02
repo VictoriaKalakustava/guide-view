@@ -33,6 +33,7 @@ import {InstructionComponent} from "./component/InstructionComponent/instruction
 import {StepComponent} from "./component/StepComponent/step.component";
 import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 import {StepService} from "./service/step.service";
+import {AddInstructionComponent} from "./component/InstructionComponent/AddInstructionComponent/add.instruction.component";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http: Http) {
 @NgModule({
   declarations: [
     AppComponent,
+    AddInstructionComponent,
     HeaderComponent,
     LoginComponent,
     SignupComponent,

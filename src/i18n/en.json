@@ -35,5 +35,12 @@
   "LOGOUT_CONFIRM": "Do you realy want to leave?",
   "YES": "Yes",
   "NO": "No",
-  "LANGUAGE": "Language"
+  "LANGUAGE": "Language",
+  "ADD_TAG": "Add tag",
+  "ADD_STEP": "Add step",
+  "STEP": "Step",
+  "TITLE": "Title",
+  "NEW_TAG": "New tag",
+  "SAVE": "Save",
+  "CANCEL": "Cancel"
 }
