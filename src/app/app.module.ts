@@ -35,6 +35,7 @@ import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 import {StepService} from "./service/step.service";
 import {Ng2CloudinaryModule} from "ng2-cloudinary";
 import {AddInstructionComponent} from "./component/InstructionComponent/AddInstructionComponent/add.instruction.component";
+import {InstructionService} from "./service/instruction.service";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -85,6 +86,7 @@ export function HttpLoaderFactory(http: Http) {
     },
     UserService,
     StepService,
+    InstructionService,
     AuthGuard,
     AuthenticationService
   ],

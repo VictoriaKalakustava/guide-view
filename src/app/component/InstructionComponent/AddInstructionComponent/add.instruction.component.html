@@ -1,11 +1,11 @@
 <div class="row">
   <div>
     <div class="col-md-offset-1">
-      <div class=" col-md-2" style="margin-right: 20px"><!--you can add jumbotron here--></div>
-      <div class="col-md-6">
-        <div class="row jumbotron" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px">
-          <div class="form-group" style=" margin-right: 10px">
-            <input type="text" class="form-control" placeholder="{{'TITLE' | translate}}">
+      <!--<div class=" col-md-2" style="margin-right: 20px">&lt;!&ndash;you can add jumbotron here&ndash;&gt;</div>-->
+      <div class="col-md-6 col-md-offset-2">
+        <div class="row jumbotron add_instr_form">
+          <div class="form-group title_container">
+            <input type="text" [(ngModel)]="instruction.title" class="form-control" placeholder="{{'TITLE' | translate}}">
           </div>
           <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
             <label class="btn btn-default btn-xs tag">
@@ -13,14 +13,13 @@
             </label>
           </a>
           <div class="input-group" style=" margin-top: 5px">
-            <input type="text" [(ngModel]="newTag" class="form-control" placeholder="{{'NEW_TAG' | translate}}">
+            <input type="text" [(ngModel)]="newTag" class="form-control" placeholder="{{'NEW_TAG' | translate}}">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button" style="margin-right: 10px;">{{'ADD_TAG' | translate}}</button>
+              <button class="btn btn-default" (click)="addTag()" type="button" style="margin-right: 10px;">{{'ADD_TAG' | translate}}</button>
             </span>
           </div>
-          <div class="row" style="padding-bottom: 0px; padding-top: 15px; padding-right: 10px">
-            <div dnd-sortable-container [sortableData]="containers" [dropZones]="['container-dropZone']" id="steps"
-                 class="">
+          <div class="row steps_container" >
+            <div dnd-sortable-container [sortableData]="containers" [dropZones]="['container-dropZone']" id="steps">
               <div *ngFor="let container of containers; let i = index" dnd-sortable [sortableIndex]="i">
                 <div class="col-md-4" title="{{'STEP' | translate}} {{i+1}}">
                   <div class="panel panel-muted ">
@@ -35,26 +34,25 @@
             <div class="col-md-4" title="{{'ADD_STEP' | translate}}">
               <a href="" >
               <div class="panel panel-default">
-                <div class="panel-body text-success" style="text-align: center;" ><span
-                  class="glyphicon glyphicon-plus text-muted" style="font-size: 40px"></span></div>
+                <div class="panel-body text-success" style="text-align: center;" >
+                  <span class="glyphicon glyphicon-plus text-muted" style="font-size: 40px"></span>
+                </div>
               </div>
               </a>
             </div>
           </div>
           <div class="form-group">
-            <button type="button" title="{{'SAVE' | translate}}" class=" btn btn-success" style="margin-right: 5px; width: 48.5%">
+            <button type="button" class="add_inst_btn btn btn-success" (click)="save()">
               {{'SAVE' | translate}}
             </button>
 
-            <button type="button" class=" btn btn-danger" title="{{'CANCEL' | translate}}" style="margin-right: 5px; width: 48.5%">
+            <button type="button" class="add_inst_btn btn btn-danger">
               {{'CANCEL' | translate}}
             </button>
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
 
