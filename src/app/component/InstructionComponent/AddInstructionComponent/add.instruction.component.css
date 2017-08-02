@@ -22,3 +22,24 @@
   display: grid;
   width: 45px;
 }
+.add_inst_btn {
+  margin-right: 5px;
+  width: 48.5%
+}
+.steps_container {
+  padding-bottom: 0;
+  padding-top: 15px;
+  padding-right: 10px
+}
+
+.title_container {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.add_instr_form {
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px
+}
