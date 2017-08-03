@@ -17,9 +17,15 @@
           </a>
         </li>
         <li class="">
-          <a href="#profile_article" data-toggle="tab" aria-expanded="false">
+          <a >
             <i class="glyphicon glyphicon-list-alt"></i>
            {{"PROFILE_ARTICLE"| translate}}
+          </a>
+        </li>
+        <li class="">
+          <a href="#add_inst" data-toggle="tab" aria-expanded="false">
+            <i class="glyphicon glyphicon-list-alt"></i>
+            {{"ADD_INSTR"| translate}}
           </a>
         </li>
         <li class="">
@@ -34,7 +40,14 @@
         </li>
       </ul>
     </div>
+
+
     <div class="tab-content">
+
+      <div class=" admin-content tab-pane fade" id="add_inst">
+        <add-instruction-component></add-instruction-component>
+      </div>
+
       <div class="col-md-9  admin-content tab-pane fade active in" id="profile">
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " style="padding-top: 15px;">
           <div class="panel panel-default">

@@ -8,6 +8,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'step/get-by-id/:id', component: StepComponent},
+  //{ path: '', component: },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
