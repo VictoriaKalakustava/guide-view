@@ -1,10 +1,21 @@
-import {EntityPageInst} from "./entitypageinst";
+import {Element} from "./element";
+import {Instruction} from "./instruction";
+import {element} from "protractor";
 
 export default class Step {
-  title: String;
-  containers: EntityPageInst[];
+  public id: number;
+  public title: string;
+  public containers: Element[];
+  public instructionId: number;
+  public position: number;
+  public instruction: Instruction;
 
-  constructor(title: string, type: string){
+  constructor(title: string, instructionId: number, position: number){
+    this.id = 0;
     this.title = title;
+    this.instruction = new Instruction;
+    this.instructionId = instructionId;
+    this.position = position;
+    this.containers= [];
   }
 }

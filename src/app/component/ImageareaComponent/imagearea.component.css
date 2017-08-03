@@ -63,7 +63,7 @@ img {
 }
 
 #image{
-  width:50%;
+  width:30%;
   float: left;
   max-width: 300px;
   max-height: 200px;
@@ -71,3 +71,4 @@ img {
 #dnd{
   width: 50%;
 }
+

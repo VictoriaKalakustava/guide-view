@@ -12,10 +12,10 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">{{"ADD_GUIDE" | translate}}</a></li>
             <li class="dropdown-submenu">
-              <a href="#">{{"LANGUAGE" | translate}}</a>
+              <a >{{"LANGUAGE" | translate}}</a>
               <ul class="dropdown-menu">
-                <li><a href="#" (click)="changeLang('ru')">Русский</a></li>
-                <li><a href="#"(click)="changeLang('en')">English</a></li>
+                <li><a  (click)="changeLang('ru')">Русский</a></li>
+                <li><a (click)="changeLang('en')">English</a></li>
               </ul>
             </li>
             <li>
