@@ -16,7 +16,7 @@ import { ProfileComponent} from './component/ProfileComponent/profile.component'
 import { routing} from './app.routing';
 import { BackgroundComponent} from './component/BackgroundComponent/background.component';
 import { DraganddropComponent} from './component/DragandropComponent/draganddrop.component';
-import { InstructionpageredComponent} from './component/StepComponent/AddStepComponent/addstep.component';
+import { AddstepComponent} from './component/StepComponent/AddStepComponent/addstep.component';
 import { InstructionpagepreComponent} from './component/InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component';
 import { DndModule} from 'ng2-dnd';
 import { TextareaComponent} from './component/TextareaComponent/textarea.component';
@@ -52,7 +52,7 @@ export function HttpLoaderFactory(http: Http) {
     BackgroundComponent,
     DraganddropComponent,
     InstructionpagepreComponent,
-    InstructionpageredComponent,
+    AddstepComponent,
     StepComponent,
     TextareaComponent,
     ImageareaComponent,
@@ -86,7 +86,8 @@ export function HttpLoaderFactory(http: Http) {
     },
     UserService,
     AuthGuard,
-    AuthenticationService
+    AuthenticationService,
+    StepService
   ],
   bootstrap: [AppComponent]
 })

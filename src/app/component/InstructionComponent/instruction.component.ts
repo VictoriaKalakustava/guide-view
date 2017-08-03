@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import Step from "../../entity/step";
-import {InstructionpageredComponent} from "../StepComponent/AddStepComponent/addstep.component";
+import {AddstepComponent} from "../StepComponent/AddStepComponent/addstep.component";
 
 
 @Component({
@@ -15,7 +15,7 @@ export class InstructionComponent {
   constructor() {
     console.log("constructor");
     this.containers = [];
-    this.containers.push(new Step("a", "a"));
+    /*this.containers.push(new Step("a", "a"));
     this.containers.push(new Step("b", "b"));
     this.containers.push(new Step("c", "c"));
     this.containers.push(new Step("d", "d"));
@@ -26,7 +26,7 @@ export class InstructionComponent {
     this.containers.push(new Step("a", "a"));
     this.containers.push(new Step("b", "b"));
     this.containers.push(new Step("c", "c"));
-    this.containers.push(new Step("d", "d"));
+    */this.containers.push(new Step("kke", 1,1));
     console.log("n init " + this.containers);
   }
 }
