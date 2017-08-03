@@ -96,4 +96,5 @@ export function HttpLoaderFactory(http: Http) {
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
