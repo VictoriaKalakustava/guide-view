@@ -1,4 +1,4 @@
-<div class="col-lg-12" id="wrapper_instr" >
+<div class="col-md-9" id="wrapper_instr" >
 
     <div id="work_area" class="modal-body jumbotron"
          infinite-scroll
@@ -40,7 +40,7 @@
       <i class="glyphicon glyphicon-eye-open"></i>
     </button>
 
-    <button href="#add_inst" data-toggle="tab" aria-expanded="false" type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
+    <button [routerLink]="['/profile/add-instruction']" type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
        <i class="glyphicon glyphicon-save"></i>
     </button>
   </div>

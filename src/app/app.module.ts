@@ -13,7 +13,7 @@ import { LoginSignupComponent} from './component/LoginSignupForm/login.signup.co
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ProfileComponent} from './component/ProfileComponent/profile.component';
-import { routing} from './app.routing';
+import {appRoutingProviders, routing} from './app.routing';
 import { BackgroundComponent} from './component/BackgroundComponent/background.component';
 import { DraganddropComponent} from './component/DragandropComponent/draganddrop.component';
 import { AddstepComponent} from './component/StepComponent/AddStepComponent/addstep.component';
@@ -37,6 +37,9 @@ import {Ng2CloudinaryModule} from "ng2-cloudinary";
 import {FileUploadModule} from "ng2-file-upload";
 import {AddInstructionComponent} from "./component/InstructionComponent/AddInstructionComponent/add.instruction.component";
 import {InstructionService} from "./service/instruction.service";
+import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComponent/editprofile.component";
+import {ViewprofileComponent} from "./component/ProfileComponent/ViewProfileComponent/viewprofile.component";
+import {RouterModule} from "@angular/router";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -61,6 +64,8 @@ export function HttpLoaderFactory(http: Http) {
     ImageareaComponent,
     VideoareaComponent,
     LogoutComponent,
+    EditprofileComponent,
+    ViewprofileComponent,
     SafePipe
   ],
   imports: [
@@ -87,12 +92,14 @@ export function HttpLoaderFactory(http: Http) {
       useFactory: authHttpServiceFactory,
       deps: [Http, RequestOptions]
     },
+
     UserService,
     StepService,
     InstructionService,
     AuthGuard,
     AuthenticationService,
-    StepService
+    StepService,
+    appRoutingProviders,
   ],
   bootstrap: [AppComponent]
 })

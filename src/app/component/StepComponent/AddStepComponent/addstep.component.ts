@@ -12,7 +12,7 @@ import any = jasmine.any;
 
 declare var $:any;
 @Component({
-  selector: 'app-instruction-red-form',
+  selector: 'add-step-form',
   templateUrl: './addstep.component.html',
   styleUrls: ['./addstep.component.css'],
 })
