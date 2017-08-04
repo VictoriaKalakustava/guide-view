@@ -22,11 +22,11 @@ import { DndModule} from 'ng2-dnd';
 import { TextareaComponent} from './component/TextareaComponent/textarea.component';
 import { InfiniteScrollModule} from 'angular2-infinite-scroll';
 import { ImageareaComponent} from './component/ImageareaComponent/imagearea.component';
-import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
+//import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
 import { SafePipe} from './service/safepipe.service';
 import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-import { YoutubePlayerModule} from "ng2-youtube-player";
+//import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
 import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
@@ -66,7 +66,7 @@ export function HttpLoaderFactory(http: Http) {
     StepComponent,
     TextareaComponent,
     ImageareaComponent,
-    VideoareaComponent,
+    //VideoareaComponent,
     LogoutComponent,
     EditprofileComponent,
     ViewprofileComponent,
@@ -78,7 +78,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-    YoutubePlayerModule,
+    //YoutubePlayerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
     DndModule.forRoot(),
