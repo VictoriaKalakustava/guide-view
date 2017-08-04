@@ -18,7 +18,7 @@ export class InstructionService extends CoreService {
 
   addInstruction(instruction: Instruction) {
     console.log("add instruction service");
-    return this.http.post(`${this.webServiceEndpoint}/instruction/add`, instruction)
+    return this.authHttp.post(`${this.webServiceEndpoint}/instruction/add`, instruction)
       .map((response: Response) => response);
   }
 }

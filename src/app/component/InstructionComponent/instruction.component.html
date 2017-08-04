@@ -1,47 +1,100 @@
+<div data-spy="scroll" data-target="#nav" data-offset="50"></div>
 <div class="row">
   <div>
     <div class="col-md-offset-1">
-      <div class=" col-md-2" style="margin-right: 20px"></div>
-      <div class="col-md-6" >
-        <div class="row jumbotron" style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px">
-          <h3 style="margin-top: 0; margin-bottom: 0">My title for my instruction and I am the best and loves cats
-          </h3>
-          <div class="rating" style="margin-top: 5px; margin-bottom: 5px">
-            <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+      <div class="col-md-2 jumbotron"
+           style=" position:fixed; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; margin-right: 25px"
+           id="nav">
+        <h3 style="margin-top: 0px">Steps</h3>
+        <div class="step-from-steps">1. <a href="#step1">Step title d d dsgs fdbfd fdfsv gfgdsg dgsdgs</a></div>
+        <div class="step-from-steps">2. <a href="#step2">Step title</a></div>
+        <div class="step-from-steps">3. <a href="#step3">Step title</a></div>
+        <hr style="margin-top: 10px; margin-bottom: 10px">
+        <div class="step-from-steps"><span class="glyphicon glyphicon-comment"></span><a href="#comments"> Comments</a>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-2" infinite-scroll
+           [infiniteScrollDistance]="modalScrollDistance"
+           [infiniteScrollThrottle]="modalScrollThrottle"
+           [scrollWindow]="false">
+
+        <div style=" margin-left: 40px">
+          <div class="row jumbotron" style="padding-bottom: 0px; padding-top: 15px; margin-bottom: 0">
+            <div class="" style="padding-left: 15px; padding-right: 15px; padding-bottom: 15px">
+              <h3 style="margin-top: 0">My title for my instruction and I am the best and loves cats
+              </h3>
+              <div class="rating" style="margin-top: 5px; margin-bottom: 5px">
+                <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
                             </span><span class="glyphicon glyphicon-star-empty"></span>
-            <span class="glyphicon glyphicon-user"></span>1,050,008 total
-          </div>
-          <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
-            <label class="btn btn-default btn-xs tag">
-              cats
-            </label>
-            <label class="btn btn-default btn-xs tag">
-              drugs
-            </label>
-            <label class="btn btn-default btn-xs tag">
-              rock-n-roll
-            </label>
-          </a>
 
-        </div>
-        <div class="row jumbotron" style="padding-bottom: 0px; padding-top: 15px">
-          <div dnd-sortable-container [sortableData]="containers" [dropZones]="['container-dropZone']" id="steps"
-               class="" >
-            <div *ngFor="let container of containers; let i = index" dnd-sortable [sortableIndex]="i">
-              <div class="col-md-4">
-                <div class="panel panel-success ">
-                  <div class="panel-heading">Step {{i}}</div>
-                  <div class="panel-body">{{container.title}}</div>
+                <!--TODO: add link to user profile-->
+                <span class="glyphicon glyphicon-user"></span><a href="/profile">USERNAME</a>
+              </div>
+              <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
+                <label class="btn btn-default btn-xs tag">
+                  cats
+                </label>
+                <label class="btn btn-default btn-xs tag">
+                  drugs
+                </label>
+                <label class="btn btn-default btn-xs tag">
+                  rock-n-roll
+                </label>
+              </a>
+
+            </div>
+            <div id="steps">
+              <div *ngFor="let container of containers; let i = index">
+                <div class="col-md-4" title="{{'STEP' | translate}} {{i+1}}">
+                  <div class="panel panel-muted ">
+                    <div class="panel-body" ngClass="{{isDay?'color-0':'color-1'}}">
+                      <a class="text-muted" style="font-size: 30px;"><b>{{i+1}} </b></a>
+                      <a>{{container.title}} </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-
+            </div>
+            <div class="col-md-4" title="{{'STEP' | translate}} 1">
+              <div class="panel panel-muted ">
+                <div class="panel-body" ngClass="{{isDay?'color-0':'color-1'}}">
+                  <a class="text-muted" style="font-size: 30px;"><b>1 </b></a>
+                  <a>Title for step 1 is the best </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" title="{{'STEP' | translate}} 2">
+              <div class="panel panel-muted ">
+                <div class="panel-body" ngClass="{{isDay?'color-0':'color-1'}}">
+                  <a class="text-muted" style="font-size: 30px;"><b>2 </b></a>
+                  <a>Nek0-nyan so title blablabla </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" title="{{'STEP' | translate}} 3">
+              <div class="panel panel-muted ">
+                <div class="panel-body" ngClass="{{isDay?'color-0':'color-1'}}">
+                  <a class="text-muted" style="font-size: 30px;"><b>3 </b></a>
+                  <a>Никита динозавр </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
+        <div style="margin-bottom: 10px; margin-left: 40px">
+          <step-component id="step1"></step-component>
+          <step-component id="step2"></step-component>
+          <step-component id="step3"></step-component>
+        </div>
+        <div style="margin-left: 40px">
+          <comment-component id="comments" style="margin-left: 40px"></comment-component>
+        </div>
       </div>
+
     </div>
+
     <div id="redctn_btn">
       <button type="button" title="{{'EDIT' | translate}}" class="add_btn btn btn-info col-sx-3">
         <i class="glyphicon glyphicon-pencil"></i>
@@ -53,6 +106,7 @@
     </div>
   </div>
 </div>
+
 
 
 
