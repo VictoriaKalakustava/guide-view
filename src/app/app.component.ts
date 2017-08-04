@@ -17,13 +17,17 @@ export class AppComponent {
 
     const browserLang = this.translate.getBrowserLang();
     this.changeLanguage(browserLang.match(/en|ru/) ? browserLang : 'en');
+
+    console.log(this.translate.currentLang);
   }
 
   changeLanguage(language: string) {
     this.translate.use(language);
+    console.log(this.translate.currentLang);
   }
 
   onChanged(lang){
+    console.log("poim")
     this.changeLanguage(lang);
   }
 }

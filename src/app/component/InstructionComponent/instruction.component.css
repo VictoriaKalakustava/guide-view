@@ -4,3 +4,19 @@
   margin-left: 2px;
   margin-bottom: 2px;
 }
+
+.panel-body.color-1 {
+  background-color: #586e75;
+  border-radius: 5px;
+  /*color: black;*/
+}
+.add_btn{
+  padding: 5px;
+  margin: 5px 5px;
+}
+#redctn_btn{
+  margin: 0;
+  border-radius: 4px;
+  display: grid;
+  width: 45px;
+}

@@ -13,6 +13,9 @@ import {AppComponent} from "../../app.component";
 export class StepComponent implements OnInit{
   private id: number;
   private sub: any;
+
+
+
   constructor(private route: ActivatedRoute,
               private stepService: StepService) {
   }
