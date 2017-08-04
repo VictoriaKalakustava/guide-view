@@ -1,12 +1,4 @@
-<div class="col-lg-12" id="wrapper_instr" >
-
-  <div id="wrapper_wa">
-    <div class="input-group" id="tlandtg">
-      <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-fire"></i></span>
-      <input type="text" class="form-control" placeholder="Title of instruction" aria-describedby="basic-addon1">
-      <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-tags"></i></span>
-      <input type="text" class="form-control" placeholder="tags" aria-describedby="basic-addon2">
-    </div>
+<div class="col-md-9" id="wrapper_instr" >
 
     <div id="work_area" class="modal-body jumbotron"
          infinite-scroll
@@ -27,7 +19,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
   <div id="redctn_btn" >
 
@@ -48,7 +40,7 @@
       <i class="glyphicon glyphicon-eye-open"></i>
     </button>
 
-    <button type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
+    <button [routerLink]="['/profile/add-instruction']" type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
        <i class="glyphicon glyphicon-save"></i>
     </button>
   </div>

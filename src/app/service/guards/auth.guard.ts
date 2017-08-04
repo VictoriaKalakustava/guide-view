@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
+import {delay} from "rxjs/operator/delay";
 
 declare var $:any;
 @Injectable()

@@ -13,7 +13,7 @@ import { LoginSignupComponent} from './component/LoginSignupForm/login.signup.co
 import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { ProfileComponent} from './component/ProfileComponent/profile.component';
-import { routing} from './app.routing';
+import {appRoutingProviders, routing} from './app.routing';
 import { BackgroundComponent} from './component/BackgroundComponent/background.component';
 import { DraganddropComponent} from './component/DragandropComponent/draganddrop.component';
 import { AddstepComponent} from './component/StepComponent/AddStepComponent/addstep.component';
@@ -22,11 +22,11 @@ import { DndModule} from 'ng2-dnd';
 import { TextareaComponent} from './component/TextareaComponent/textarea.component';
 import { InfiniteScrollModule} from 'angular2-infinite-scroll';
 import { ImageareaComponent} from './component/ImageareaComponent/imagearea.component';
-//import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
+import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
 import { SafePipe} from './service/safepipe.service';
 import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-//import { YoutubePlayerModule} from "ng2-youtube-player";
+import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
 import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
@@ -34,11 +34,14 @@ import {StepComponent} from "./component/StepComponent/step.component";
 import {LogoutComponent} from "./component/LogoutComponent/logout.component";
 import {StepService} from "./service/step.service";
 import {Ng2CloudinaryModule} from "ng2-cloudinary";
+import {FileUploadModule} from "ng2-file-upload";
 import {AddInstructionComponent} from "./component/InstructionComponent/AddInstructionComponent/add.instruction.component";
 import {InstructionService} from "./service/instruction.service";
-import {FileUploadModule} from "ng2-file-upload";
 import {CommentComponent} from "./component/InstructionComponent/CommentComponent/comment.component";
 import {EventService} from "./service/event.service";
+import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComponent/editprofile.component";
+import {ViewprofileComponent} from "./component/ProfileComponent/ViewProfileComponent/viewprofile.component";
+import {RouterModule} from "@angular/router";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -63,19 +66,21 @@ export function HttpLoaderFactory(http: Http) {
     StepComponent,
     TextareaComponent,
     ImageareaComponent,
-   // VideoareaComponent,
+    VideoareaComponent,
     LogoutComponent,
+    EditprofileComponent,
+    ViewprofileComponent,
     SafePipe
   ],
   imports: [
     BrowserModule,
     InfiniteScrollModule,
-    Ng2CloudinaryModule,
-    FileUploadModule,
     FormsModule,
     HttpModule,
     routing,
-   // YoutubePlayerModule,
+    YoutubePlayerModule,
+    Ng2CloudinaryModule,
+    FileUploadModule,
     DndModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -98,6 +103,7 @@ export function HttpLoaderFactory(http: Http) {
     AuthenticationService,
     StepService,
     EventService,
+    appRoutingProviders,
   ],
   bootstrap: [AppComponent]
 })
