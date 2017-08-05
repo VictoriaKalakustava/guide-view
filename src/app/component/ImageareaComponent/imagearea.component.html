@@ -1,11 +1,20 @@
-<div class="container form-control" id="imagearea">
+<div class="panel" id="imagearea">
 
-  <div class="col-md-4" id="image">
-    <img id="id-area-image" class="img-responsive" src={{id_img}} />
+  <div class="col-lg-3 col-md-3 hidden-sm hidden-xs" id="photo">
+
+    <div class="panel panel-default">
+      <div class="panel-body" >
+        <div class="media">
+          <div align="center">
+            <img id="id-area-image" class="img-responsive" src={{id_img}}/>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div>
-    <app-draganddrop-form (upImgStep)="updateImg($event)" ></app-draganddrop-form>
+    <app-draganddrop-form (upImgStep)="updateImg($event)"></app-draganddrop-form>
   </div>
 
 </div>

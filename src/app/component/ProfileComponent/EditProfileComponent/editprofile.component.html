@@ -4,55 +4,85 @@
 
     <form #form="ngForm">
 
-      <div id="draganddrop" class="panel">
-        <div class="panel-body" style="padding: 0;">
+      <div id="draganddrop" class="">
+        <div class="panel-body jumbotron" style="padding: 0;">
           <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph">
 
             <div class="panel panel-default">
               <div class="panel-body">
                 <div class="media">
                   <div align="center">
-                    <img *ngIf="!user.image" class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png"
+                    <img *ngIf="!user.image" class="thumbnail img-responsive"
+                         src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png"
                          width="300px" height="300px">
                     <div style="width: 300px; height: 300px; position: relative; top: -30%; left: -50%;">
-                      <cl-image id="cloud-img" *ngIf="user.image" public-id={{user.image}} cloud-name="dhimzt8vr"></cl-image>
+                      <cl-image id="cloud-img" *ngIf="user.image" public-id={{user.image}}
+                                cloud-name="dhimzt8vr"></cl-image>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-          <app-draganddrop-form (upImg)="updateImg($event)" ></app-draganddrop-form>
+          <app-draganddrop-form (upImg)="updateImg($event)"></app-draganddrop-form>
+
         </div>
 
-        <form class="form-horizontal jumbotron" style="padding-bottom: 10px; padding-top: 10px; padding-right: 0">
+        <form class="form-horizontal jumbotron"
+              style="padding-bottom: 10px; padding-top: 10px; padding-right: 30px; padding-left: 30px">
           <fieldset>
-            <legend style="margin-bottom: 7px; margin-left: 20px">Edit profile info</legend>
-            <div class="col-lg-11" style="margin-left: 0; width: 100%">
-              <div class="col-lg-5">
-                <div class="form-group">
-                  <div>
-                    <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.email" name="email" id="inputEmail"  placeholder="New email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div>
-                    <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.login" name="login" id="inputLogin"  placeholder="New login">
-                  </div>
-                </div>
+            <div class="col-md-12 col-lg-12 row" style="margin-left: 0; width: 100%">
+              <div class="col-lg-6" ngClass="{{isEmail?'':'has-error'}}">
+                <h5>E-mail</h5>
+                <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.email"
+                       name="email" id="inputEmail" placeholder="New email" (keyup)="checkEmail()" (input)="checkEmail()">
+                <span class="help-block error" *ngIf="formErrors.email">
+                {{ formErrors.email | translate}}
+              </span>
               </div>
-              <div class="col-lg-5 col-lg-offset-1">
-                <div class="form-group">
-                  <div>
-                    <!--TODO make change only if pass confirm-->
-                    <input (change)="updateProfile()" type="password" class="form-control" [(ngModel)]="user.password" name="password" id="inputPassword" placeholder="New password">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div>
-                    <input type="password" class="form-control" [(ngModel)]="user.password" name="confirmPassword" id="inputLConfirmPassword" placeholder="Confirm password">
-                  </div>
+
+              <div class="col-lg-6" ngClass="{{isLogin?'':'has-error'}}">
+                <h5>Login</h5>
+                <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.login"
+                       name="login" id="inputLogin" placeholder="New login" (keyup)="checkLogin()" (input)="checkLogin()">
+                <span class="help-block error" *ngIf="formErrors.login">
+                {{ formErrors.login | translate}}
+              </span>
+              </div>
+
+              <div class="col-lg-6" ngClass="{{isPassword?'':'has-error'">
+                <!--TODO make change only if pass confirm-->
+                <h5>Old password</h5>
+                <input (change)="updateProfile()" type="password" class="form-control" [(ngModel)]="oldPassword"
+                       name="password" id="inputPassword" placeholder="Old password">
+              </div>
+              <div class="col-lg-6" ngClass="{{isNewPassword?'has-success':(isNewPassword!==undefined?'has-error':'')}}">
+                <h5>New password</h5>
+                <input type="password" class="form-control" [(ngModel)]="newPassword" name="confirmPassword"
+                       id="inputLConfirmPassword" placeholder="New password" (keyup)="checkPassword()" (input)="checkPassword()">
+                <span class="help-block error" *ngIf="formErrors.newPassword">
+                {{ formErrors.newPassword | translate}}
+              </span>
+              </div>
+              <div class="col-lg-6" ngClass="{{isName?'':'has-error'}}">
+                <h5>Name</h5>
+                <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.name"
+                       name="login" id="inputName"  (keyup)="checkName()" (input)="checkName()">
+                <span class="help-block error" *ngIf="formErrors.name">
+                {{ formErrors.name | translate}}
+              </span>
+              </div>
+              <div class="col-lg-6" ngClass="{{isSurname?'':'has-error'}}">
+                <h5>Surname</h5>
+                <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.surname"
+                       name="login" id="inputSurname"  (keyup)="checkSurname()" (input)="checkSurname()">
+                <span class="help-block error" *ngIf="formErrors.surname">
+                {{ formErrors.surname | translate}}
+              </span>
+              </div>
+              <div class="col-lg-12">
+                <h5>About</h5>
+                <div contentEditable="true" class="form-control" id="id-area-text" name="Text" style="height: auto">
                 </div>
               </div>
             </div>
