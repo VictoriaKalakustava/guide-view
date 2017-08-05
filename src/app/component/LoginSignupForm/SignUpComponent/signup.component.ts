@@ -3,126 +3,111 @@ import {User} from '../../../entity/user';
 import {UserService} from '../../../service/user.service';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {Router} from "@angular/router";
+import {ValidationService} from "../../../service/validation.service";
 
 declare var $: any;
+
 @Component({
   selector: 'sign-up-form',
   templateUrl: './signup.component.html',
-  // styleUrls: ['./signup.component.css'],
+  styleUrls: ['./signup.component.css'],
 
 })
 export class SignupComponent {
-  isLoginExist: boolean = false;
-  isPasswordExist: boolean = false;
-  isPasswordConfirm: boolean = false;
-  passwordConfirm: String;
+  isLoginCorrect = false;
+  isNameExist = false;
+  isSurnameExist = false;
+  isPasswordExist = false;
+  isPasswordConfirm = false;
+  isEmailCorrect = false;
+
+  passwordConfirm: string;
+
 
   private user: User = new User();
   formErrors = {
     mylogin: '',
     password: '',
-    passwordConfirm: ''
+    passwordConfirm: '',
+    email: '',
+    name: '',
+    surname: ''
   };
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private validationService: ValidationService) {
   }
 
-  //TODO: correct value to if
   signUp(value: any) {
-    if (true) {
+    if (this.isFormValid()) {
       this.sendSignUpRequest(value);
-    } else {
     }
-    console.log('signup');
+  }
+
+  isFormValid() {
+    return this.isLoginCorrect &&
+      this.isNameExist &&
+      this.isSurnameExist &&
+      this.isPasswordExist &&
+      this.isPasswordConfirm &&
+      this.isEmailCorrect;
+  }
+
+  checkEmail() {
+    this.formErrors.email = this.validationService.checkEmail(this.user.email);
+    this.isEmailCorrect = SignupComponent.setErrors(this.formErrors.email);
+  }
+
+  static setErrors(answer: string) {
+    return answer === null;
   }
 
   checkPassword() {
-    this.formErrors.password = '';
-    var password = $('#password-signup');
-    console.log(this.user.password);
-    if(this.user.password === '') {
-      console.log('required');
-      this.formErrors.password = 'PASSWORD_REQUEST';
-      this.isPasswordExist = false;
-      this.changeInputColor(password, true);
-    } else {
-
-      this.isPasswordExist = true;
-      this.changeInputColor(password, false);
-    }
-    this.checkPasswordConfirm();
+    this.formErrors.password = this.validationService.checkPassword(this.user.password);
+    this.isPasswordExist = SignupComponent.setErrors((this.formErrors.password));
   }
 
   checkPasswordConfirm() {
-    this.formErrors.passwordConfirm = '';
-    var password = $('#password-confirm');
-    console.log(this.passwordConfirm);
-    if(this.passwordConfirm === this.user.password) {
-      this.changeInputColor(password, false);
-      this.isPasswordConfirm = true;
-    } else {
-      this.isPasswordConfirm = false;
-      console.log('required');
-      this.formErrors.passwordConfirm = 'PASSWORDS_NOT_EQUALS';
-      this.changeInputColor(password, true);
-    }
+    this.formErrors.passwordConfirm = this.validationService.confirmPassword(this.user.password, this.passwordConfirm);
+    this.isPasswordConfirm = SignupComponent.setErrors(this.formErrors.passwordConfirm);
   }
 
   checkLogin() {
-    this.formErrors.mylogin = '';
-    var formLogin = $('#username-signup');
-    console.log(this.user.login);
-    console.log(formLogin.component);
-    if(this.user.login === '' ) {
-      console.log('required');
-      this.formErrors.mylogin = 'LOGIN_REQUEST';
-      this.changeInputColor(formLogin, true);
-    } else {
-      this.loginIsExist(formLogin);
+    this.formErrors.mylogin = this.validationService.checkRequired(this.user.login);
+    this.isLoginCorrect = SignupComponent.setErrors(this.formErrors.mylogin);
+    if(this.isLoginCorrect) {
+      this.loginIsExist(this.user.login);
     }
   }
 
+  checkName() {
+    this.formErrors.name = this.validationService.checkRequired(this.user.name);
+    this.isNameExist = SignupComponent.setErrors(this.formErrors.name);
+  }
+
+  checkSurname() {
+    this.formErrors.surname = this.validationService.checkRequired(this.user.surname);
+    this.isSurnameExist = SignupComponent.setErrors(this.formErrors.surname);
+  }
+
   loginIsExist(login) {
-    this.userService.isExistLogin(login.toString()).subscribe(
+    this.userService.isExistLogin(login).subscribe(
       data => {
-        if(data.json()) {
+        this.isLoginCorrect = true;
+      }, err => {
+        if (err.status == 409) {
           this.formErrors.mylogin = "LOGIN_IS_EXIST";
-          this.changeInputColor(login, true);
-          this.isLoginExist = false;
-        } else {
-          this.changeInputColor(login, false);
-          this.isLoginExist = true;
+          this.isLoginCorrect = false;
         }
       }
     )
   }
 
-  getUserForSignUp(value: any) {
-    console.log('getUser');
-    this.user.login = value.username;
-    this.user.email = value.email;
-    this.user.password = value.password;
-    this.user.name = value.name;
-    this.user.surname = value.surname;
-  }
-
   sendSignUpRequest(value: any) {
-    this.getUserForSignUp(value);
     this.userService.signUp(this.user).subscribe(
       data => {
         console.log(data);
       }
     )
   }
-
-  changeInputColor(element, isError) {
-    if(isError) {
-      element.removeClass('greenLine');
-      element.addClass('redLine');
-    } else {
-      element.addClass('greenLine');
-      element.removeClass('redLine');
-    }
-  }
-
 }

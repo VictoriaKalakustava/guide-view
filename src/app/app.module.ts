@@ -42,6 +42,7 @@ import {EventService} from "./service/event.service";
 import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComponent/editprofile.component";
 import {ViewprofileComponent} from "./component/ProfileComponent/ViewProfileComponent/viewprofile.component";
 import {RouterModule} from "@angular/router";
+import {ValidationService} from "./service/validation.service";
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './i18n/', '.json');
@@ -104,6 +105,7 @@ export function HttpLoaderFactory(http: Http) {
     StepService,
     EventService,
     appRoutingProviders,
+    ValidationService
   ],
   bootstrap: [AppComponent]
 })

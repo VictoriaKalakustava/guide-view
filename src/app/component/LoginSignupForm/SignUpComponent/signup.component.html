@@ -1,47 +1,56 @@
 <form id="register-form" #form="ngForm" (ngSubmit)="signUp(form.value)" role="form" style="display: none;">
-  <div class="form-group">
+  <div class="form-group" ngClass="{{isLoginCorrect?'has-success':''}}">
     <input type="text" name="username"
            id="username-signup" tabindex="1" [(ngModel)]="user.login"
-           class="form-control" (keyup)="checkLogin()" (blur)="checkLogin()"
+           class="form-control" (keyup)="checkLogin()" (input)="checkLogin()"
            placeholder="{{'USERNAME'|translate}}" value="" required="">
-    <span class="help-block" *ngIf="formErrors.mylogin" style="color: red">
+    <span class="help-block error" *ngIf="formErrors.mylogin" >
                 {{ formErrors.mylogin | translate}}
               </span>
   </div>
-  <div class="form-group">
-    <input type="email" ngModel name="email" id="email" tabindex="2" class="form-control"
-           placeholder="{{'EMAIL'| translate}}" value="">
+  <div class="form-group" ngClass="{{isEmailCorrect?'has-success':''}}">
+    <input type="email" [(ngModel)]="user.email" name="email" id="email" tabindex="2" class="form-control"
+           placeholder="{{'EMAIL'| translate}}" value="" (keyup)="checkEmail()" (input)="checkEmail()">
   </div>
-  <div class="form-group">
+  <span class="help-block error" *ngIf="formErrors.email" >
+                {{ formErrors.email | translate}}
+              </span>
+  <div class="form-group" ngClass="{{isPasswordExist?'has-success':''}}">
     <input type="text" name="password" [(ngModel)]="user.password" id="password-signup" tabindex="3" class="form-control"
-           placeholder="{{'PASSWORD'|translate}}" (keyup)="checkPassword()" (blur)="checkPassword()" minlength="8" >
+           placeholder="{{'PASSWORD'|translate}}" (keyup)="checkPassword()" minlength="8" >
   </div>
-  <span class="help-block" *ngIf="formErrors.password" style="color: red">
+  <span class="help-block error" *ngIf="formErrors.password" >
                 {{ formErrors.password | translate}}
               </span>
-  <div class="form-group">
-    <input type="password" [(ngModel)]="passwordConfirm" (keyup)="checkPasswordConfirm()" (blur)="checkPasswordConfirm()"
+  <div class="form-group" ngClass="{{isPasswordConfirm?'has-success':''}}">
+    <input type="password" [(ngModel)]="passwordConfirm" (keyup)="checkPasswordConfirm()"
            name="passwordConfirm" id="password-confirm" tabindex="4"
            class="form-control" placeholder="{{'CONFIRM_PASSWORD'|translate}}">
   </div>
-  <span class="help-block" *ngIf="formErrors.passwordConfirm" style="color: red">
+  <span class="help-block error" *ngIf="formErrors.passwordConfirm">
                 {{ formErrors.passwordConfirm | translate}}
               </span>
 
   <div class="form-group">
-    <input type="text" ngModel name="name" id="firstname" tabindex="5" class="form-control"
-           placeholder="{{'NAME'|translate}}" value="" required="">
+    <input type="text" [(ngModel)]="user.name" name="name" id="firstname" tabindex="5" class="form-control"
+           placeholder="{{'NAME'|translate}}" (keyup)="checkName()" (input)="checkName()">
   </div>
+  <span class="help-block error" *ngIf="formErrors.name" >
+                {{ formErrors.name | translate}}
+              </span>
   <div class="form-group">
-    <input type="text" ngModel name="surname" id="lastname" tabindex="6" class="form-control"
-           placeholder="{{'LASTNAME'|translate}}" value="" required="">
+    <input type="text" [(ngModel)]="user.surname" name="surname" id="lastname" tabindex="6" class="form-control"
+           placeholder="{{'LASTNAME'|translate}}"  (keyup)="checkSurname()" (input)="checkSurname()">
   </div>
+  <span class="help-block error" *ngIf="formErrors.surname" >
+                {{ formErrors.surname | translate}}
+              </span>
   <div class="form-group">
 
     <div class="form-group">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
-          <button type="submit" [disabled]="!isLoginExist || !isPasswordExist || !isPasswordConfirm" name="register-submit" id="register-submit" tabindex="7"
+          <button type="submit" [disabled]="!isLoginCorrect || !isPasswordExist || !isPasswordConfirm" name="register-submit" id="register-submit" tabindex="7"
                   class="btn btn-info btn-block" value="Register Now" style="margin: 0 0 0 0; border: 0">{{'SIGN_UP'| translate}}</button>
         </div>
       </div>
