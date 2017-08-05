@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, RequestOptions, Response, Headers} from '@angular/http';
+import {Http, Response} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {CoreService} from "./core/core.service";
@@ -7,7 +7,6 @@ import {CoreService} from "./core/core.service";
 @Injectable()
 export class AuthenticationService extends CoreService{
   public token: string;
-
   constructor(private http: Http) {
     super();
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -20,10 +19,13 @@ export class AuthenticationService extends CoreService{
         let token = response.headers.get('Authorization');
         if (token) {
           this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+          //TODO make processing exception
+          localStorage.setItem('currentUser', JSON.stringify({
+            username: username,
+            token: token,
+          }));
           return true;
          }
-        console.log('it hren false');
           return false;})
           .catch(e => {
           if (e.status === 401) {

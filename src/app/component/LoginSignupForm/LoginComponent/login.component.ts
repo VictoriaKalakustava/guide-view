@@ -32,6 +32,8 @@ export class LoginComponent {
         if (result == true) {
           $('#hidden-submit').click();
           this.error = false;
+          console.log('next save');
+          this.userService.saveCurrentUser(this.user.login);
           this.router.navigate(['/profile']);
         }}, (err) => {
           if (err === 'Unauthorized') {

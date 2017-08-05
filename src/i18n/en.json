@@ -51,5 +51,6 @@
   "TITLE": "Title",
   "NEW_TAG": "New tag",
   "SAVE": "Save",
-  "CANCEL": "Cancel"
+  "CANCEL": "Cancel",
+  "ADD_INSTR":"Add instruction"
 }

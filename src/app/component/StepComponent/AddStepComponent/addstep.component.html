@@ -1,10 +1,15 @@
 <div class="col-md-9" id="wrapper_instr" >
-
+  <div id="wrapper_wa">
+    <div class="input-group" id="tlandtg">
+      <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-fire"></i></span>
+      <input type="text" [(ngModel)]="titleStep" class="form-control" placeholder="Title of step" aria-describedby="basic-addon1">
+    </div>
     <div id="work_area" class="modal-body jumbotron"
          infinite-scroll
          [infiniteScrollDistance]="modalScrollDistance"
          [infiniteScrollThrottle]="modalScrollThrottle"
          [scrollWindow]="false" >
+
       <div dnd-sortable-container [sortableData]="containers" [dropZones]="['container-dropZone']">
         <div *ngFor="let container of containers; let i = index" dnd-sortable [sortableIndex]="i">
           <div *ngIf="container.type === 'text'" class="panel-heading" >
@@ -13,13 +18,13 @@
           <div *ngIf="container.type === 'image'"  class="panel-heading" >
             <app-image-area class="uni_id"></app-image-area>
           </div>
-          <!--<div *ngIf="container.type === 'video'" class="panel-heading" >-->
-            <!--<app-video-area class="uni_id"></app-video-area>-->
-          <!--</div>-->
+          <div *ngIf="container.type === 'video'" class="panel-heading" >
+            <app-video-area class="uni_id"></app-video-area>
+          </div>
         </div>
       </div>
     </div>
-
+  </div>
 
   <div id="redctn_btn" >
 
@@ -40,7 +45,7 @@
       <i class="glyphicon glyphicon-eye-open"></i>
     </button>
 
-    <button [routerLink]="['/profile/add-instruction']" type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
+    <button type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
        <i class="glyphicon glyphicon-save"></i>
     </button>
   </div>

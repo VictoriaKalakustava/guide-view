@@ -1,11 +1,11 @@
-import {Element} from "./element";
+import {StepElement} from "./element";
 import {Instruction} from "./instruction";
 import {element} from "protractor";
 
 export default class Step {
   public id: number;
   public title: string;
-  public containers: Element[];
+  public elements: StepElement[];
   public instructionId: number;
   public position: number;
   public instruction: Instruction;
@@ -16,6 +16,6 @@ export default class Step {
     this.instruction = new Instruction;
     this.instructionId = instructionId;
     this.position = position;
-    this.containers= [];
+    this.elements= [];
   }
 }

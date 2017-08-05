@@ -14,12 +14,7 @@ const appRoutes: Routes = [
     component: ProfileComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: ViewprofileComponent},
-      { path: 'add-instruction',
-        component: AddInstructionComponent,
-        /*children:[{
-          path: 'add-step',
-          component: AddstepComponent,
-        }]*/},
+      { path: 'add-instruction', component: AddInstructionComponent,},
       { path: 'edit-profile', component: EditprofileComponent},
       { path: 'add-step-inst', component: AddstepComponent},
     ]
