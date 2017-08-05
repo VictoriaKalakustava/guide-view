@@ -28,12 +28,12 @@ export class EditprofileComponent {
 
   checkEmail() {
     this.formErrors.email = this.validationService.checkEmail(this.user.email);
-    this.isEmail = !(this.formErrors.email !== null);
+    this.isEmail =!(this.formErrors.email === null);
   }
 
   checkLogin() {
     this.formErrors.login = this.validationService.checkRequired(this.user.login);
-    this.isLogin = !(this.formErrors.login !== null);
+    this.isLogin = (this.formErrors.login === null);
     if(this.isLogin) {
       this.loginIsExist(this.user.login);
     }
@@ -41,17 +41,17 @@ export class EditprofileComponent {
 
   checkName() {
     this.formErrors.name = this.validationService.checkRequired(this.user.name);
-    this.isName = !(this.formErrors.name !== null);
+    this.isName = (this.formErrors.name === null);
   }
 
   checkSurname() {
     this.formErrors.surname = this.validationService.checkRequired(this.user.surname);
-    this.isSurname = !(this.formErrors.surname !== null);
+    this.isSurname = (this.formErrors.surname === null);
   }
 
   checkPassword() {
     this.formErrors.newPassword = this.validationService.checkPassword(this.newPassword);
-    this.isNewPassword = !(this.formErrors.newPassword !== null);
+    this.isNewPassword = (this.formErrors.newPassword === null);
   }
 
   loginIsExist(login) {
