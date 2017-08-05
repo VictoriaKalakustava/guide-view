@@ -28,7 +28,7 @@ export class EditprofileComponent {
 
   checkEmail() {
     this.formErrors.email = this.validationService.checkEmail(this.user.email);
-    this.isEmail =!(this.formErrors.email === null);
+    this.isEmail = (this.formErrors.email === null);
   }
 
   checkLogin() {
