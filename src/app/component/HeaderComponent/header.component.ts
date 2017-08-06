@@ -25,15 +25,7 @@ export class HeaderComponent {
   ) { this.changeMode();}
 
   search() {
-    console.log("search");
-    console.log(this.searchParam);
-    if(this.searchParam){
-      this.searchService.search(this.searchParam).subscribe(
-        data => {
-          console.log(data);
-        }
-      );
-    }
+    this.router.navigate(['/search/' + this.searchParam]);
   }
 
   changeMode() {

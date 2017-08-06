@@ -5,8 +5,8 @@ export class Instruction {
   id: number;
   title: string;
   //TODO: tag
-  userId: number;
   userLogin: string;
+  userId: number;
   step: Step[];
 
 }

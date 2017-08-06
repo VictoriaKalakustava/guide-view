@@ -9,3 +9,43 @@
   background-color: #586e75;
   border-radius: 5px;
 }
+
+.steps_container {
+  padding-bottom: 0;
+  padding-top: 15px;
+  padding-right: 10px
+}
+
+.title_container {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.add_instr_form {
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px
+}
+
+#title_step{
+  width: 85%;
+  margin-left: 10px;
+  background-color: #ECF0F1;
+  border: 0;
+}
+
+.text {
+  display: -webkit-box;
+  max-width: 400px;
+  height: 50px;
+  padding: 1px 0;
+  margin: 0 auto;
+  line-height: 1.2;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+

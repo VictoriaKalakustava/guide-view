@@ -17,15 +17,19 @@
               {{tag.name}}
             </label>
           </a>
-          <div class="row" style="padding-bottom: 0px; padding-top: 15px; padding-right: 10px">
+          <div class="row steps_container" style="padding-bottom: 0px; padding-top: 15px; padding-right: 10px">
             <div dnd-sortable-container [sortableData]="containers" [dropZones]="['container-dropZone']" id="steps"
                  class="" >
               <div *ngFor="let element of instruction.step; let i = index" dnd-sortable [sortableIndex]="i">
                 <div class="col-md-4">
                   <div class="panel panel-muted ">
                     <div class="panel-body">
-                      <a class="text-muted" style="font-size: 30px;;"><b>{{i+1}} </b></a>
-                      <a>{{element.title}} </a>
+                      <a class="text-muted" style="font-size: 30px;float: left; "><b >{{i+1}} </b></a>
+                      <div class="col-xs-10" >
+                        <div class="text" style="font-size: 13px;">
+                          {{element.title}}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -74,7 +74,7 @@ export class AddInstructionComponent implements OnInit{
       data => {
         this.instruction.id = data.id;
         console.log('___inst saved ' + this.instruction.id);
-        },
+      },
       error => { console.log('Error in getTitleInstruction.');
       });
     this.routershareService.objectInstruction = this.instruction;

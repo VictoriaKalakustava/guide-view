@@ -3,13 +3,13 @@
     <div class="">
       <!--<div class=" col-md-2" style="margin-right: 20px">&lt;!&ndash;you can add jumbotron here&ndash;&gt;</div>-->
       <div class="col-md-9" style="margin-left: 5px;">
-        <div class="row jumbotron add_instr_form">
+        <div class="row jumbotron add_instr_form" style="padding-right: 0">
           <div class="form-group title_container" ngClass="{{isTitleCorrect?'has-success':''}}">
             <input type="text" [(ngModel)]="titleInstruction" class="form-control"
                    placeholder="{{'TITLE' | translate}}"
                    (change)="checkTitle()" (input)="checkTitle()">
           </div>
-          <span class="help-block error" *ngIf="formErrors.titleInstruction" >
+          <span class="help-block error" *ngIf="formErrors.titleInstruction" style="margin-left: 15px">
                 {{ formErrors.titleInstruction | translate}}
               </span>
           <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
@@ -41,8 +41,8 @@
               </div>
             </div>
             <button type="button" [disabled]="!isTitleCorrect" class="col-md-4 btn" title="{{'ADD_STEP' | translate}}"
-              [routerLink]="['/profile/add-step-inst']" (click)="getTitleInst()"
-                style="padding: 0; border-width: 0; margin-left: 15px; margin-bottom: 10px;">
+                    [routerLink]="['/profile/add-step-inst']" (click)="getTitleInst()"
+                    style="padding: 0; border-width: 0; margin-left: 15px; margin-bottom: 10px;">
               <div class="panel panel-default" style="margin-bottom: 0; height: 84px;">
                 <div class="panel-body text-success" style="text-align: center;" >
                   <span class="glyphicon glyphicon-plus text-muted" style="font-size: 40px"></span>
@@ -65,8 +65,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
