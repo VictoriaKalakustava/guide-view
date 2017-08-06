@@ -8,6 +8,8 @@ import {InstructionService} from "../../../service/instruction.service";
 import {RouterShareService} from "../../../service/router.share.service";
 import {ActivatedRoute} from "@angular/router";
 import {StepService} from "../../../service/step.service";
+import {ValidationService} from "../../../service/validation.service";
+import {consoleTestResultHandler} from "tslint/lib/test";
 
 @Component({
   selector: 'add-instruction-component',
@@ -18,28 +20,39 @@ import {StepService} from "../../../service/step.service";
 export class AddInstructionComponent implements OnInit{
   instruction: Instruction = new Instruction();
   newTag: string;
-  titleStep: string;
-  titleInstruction: string;
-  positionStep: number;
+  titleInstruction = '';
   containers: Step[];
   idInst: number;
-  private isAdded: boolean;
+
+  isTitleCorrect: boolean;
+  isContainers: boolean;
+
+  formErrors = {
+    titleInstruction: '',
+  }
+
 
   constructor(private stepService: StepService,
               private instructionService: InstructionService,
-              private routershareService: RouterShareService) {
+              private routershareService: RouterShareService,
+              private validationService: ValidationService) {
     this.containers = [];
     this.idInst = null;
   }
 
   ngOnInit(){
+    if(this.routershareService.isAdded) {
+      this.titleInstruction = this.routershareService.objectInstruction.title;
+      this.containers = this.routershareService.containers;
+    }
+    else this.routershareService.containers = [];
+    if(this.routershareService.idInst) this.instruction.id = this.routershareService.idInst;
+    this.checkTitle();
+    this.checkContainers();
+  }
 
-      if(this.routershareService.isAdded) {
-        this.titleInstruction = this.routershareService.objectInstruction.title;
-        this.containers = this.routershareService.containers;
-      }
-      else this.routershareService.containers = [];
-      if(this.routershareService.idInst) this.instruction.id = this.routershareService.idInst;
+  checkContainers(){
+    this.containers.length === 0 ? this.isContainers = false : this.isContainers = true;
   }
 
   addTag() {
@@ -54,7 +67,9 @@ export class AddInstructionComponent implements OnInit{
   getTitleInst() {
     this.instruction.userId = JSON.parse(localStorage.getItem('currentUserData')).id;
     this.instruction.title = this.titleInstruction;
-
+    console.log('current_user' + JSON.parse(localStorage.getItem('currentUser')).username);
+    this.instruction.userLogin = JSON.parse(localStorage.getItem('currentUser')).username;
+    this.instruction.step = this.containers;
     this.save().subscribe(
       data => {
         this.instruction.id = data.id;
@@ -71,7 +86,6 @@ export class AddInstructionComponent implements OnInit{
       console.log('Step before ' + JSON.stringify( elem));
       elem.position = i;
       elem.instructionId = this.instruction.id;
-      elem.instruction = this.instruction;
       console.log('Step after ' + JSON.stringify( elem));
       this.stepService.saveStep(elem).subscribe(data=>{
         console.log('saved' + data.json());
@@ -80,4 +94,8 @@ export class AddInstructionComponent implements OnInit{
     }
   }
 
+  checkTitle(){
+    this.formErrors.titleInstruction = this.validationService.checkRequired(this.titleInstruction);
+    this.isTitleCorrect = this.formErrors.titleInstruction === null;
+  }
 }

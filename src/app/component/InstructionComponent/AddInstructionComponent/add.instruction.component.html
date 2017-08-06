@@ -4,9 +4,14 @@
       <!--<div class=" col-md-2" style="margin-right: 20px">&lt;!&ndash;you can add jumbotron here&ndash;&gt;</div>-->
       <div class="col-md-9" style="margin-left: 5px;">
         <div class="row jumbotron add_instr_form">
-          <div class="form-group title_container">
-            <input type="text" [(ngModel)]="titleInstruction" class="form-control" placeholder="{{'TITLE' | translate}}">
+          <div class="form-group title_container" ngClass="{{isTitleCorrect?'has-success':''}}">
+            <input type="text" [(ngModel)]="titleInstruction" class="form-control"
+                   placeholder="{{'TITLE' | translate}}"
+                   (change)="checkTitle()" (input)="checkTitle()">
           </div>
+          <span class="help-block error" *ngIf="formErrors.titleInstruction" >
+                {{ formErrors.titleInstruction | translate}}
+              </span>
           <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
             <label class="btn btn-default btn-xs tag">
               cats  <i class="glyphicon glyphicon-remove small"></i>
@@ -35,18 +40,19 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4" title="{{'ADD_STEP' | translate}}">
-              <a [routerLink]="['/profile/add-step-inst']" (click)="getTitleInst()">
-              <div class="panel panel-default">
+            <button type="button" [disabled]="!isTitleCorrect" class="col-md-4 btn" title="{{'ADD_STEP' | translate}}"
+              [routerLink]="['/profile/add-step-inst']" (click)="getTitleInst()"
+                style="padding: 0; border-width: 0; margin-left: 15px; margin-bottom: 10px;">
+              <div class="panel panel-default" style="margin-bottom: 0; height: 84px;">
                 <div class="panel-body text-success" style="text-align: center;" >
                   <span class="glyphicon glyphicon-plus text-muted" style="font-size: 40px"></span>
                 </div>
               </div>
-              </a>
-            </div>
+
+            </button>
           </div>
           <div class="form-group">
-            <button type="button" class="add_inst_btn btn btn-success" (click)="saveAll()">
+            <button type="button" [disabled]="!isTitleCorrect || !isContainers" class="add_inst_btn btn btn-success" (click)="saveAll()">
               {{'SAVE' | translate}}
             </button>
 
