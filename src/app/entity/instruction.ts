@@ -4,9 +4,9 @@ import {User} from "./user";
 export class Instruction {
   id: number;
   title: string;
-  userLogin: string;
   //TODO: tag
   userId: number;
+  userLogin: string;
   step: Step[];
 
 }

@@ -1,0 +1,11 @@
+.tag {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+
+.panel-body.color-1 {
+  background-color: #586e75;
+  border-radius: 5px;
+}

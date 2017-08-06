@@ -7,6 +7,7 @@ import {AddInstructionComponent} from "./component/InstructionComponent/AddInstr
 import {ViewprofileComponent} from "./component/ProfileComponent/ViewProfileComponent/viewprofile.component";
 import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComponent/editprofile.component";
 import {AddstepComponent} from "./component/StepComponent/AddStepComponent/addstep.component";
+import {SearchResultComponent} from "./component/InstructionComponent/SearchResultComponent/search.result.component";
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,8 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'step/get-by-id/:id', component: StepComponent},
+  { path: 'search/:searchParam', component: SearchResultComponent},
+
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
