@@ -1,0 +1,6 @@
+<div class="loader" *ngIf="!searchResult"></div>
+<div *ngIf="searchResult">
+  <div *ngFor="let result of searchResult">
+    <instruction-for-guest [instruction] = result></instruction-for-guest>
+  </div>
+</div>

@@ -7,4 +7,5 @@ export class Instruction {
   //TODO: tag
   steps: Step[];
   userId: number;
+  userLogin: string;
 }

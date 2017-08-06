@@ -36,9 +36,9 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="{{'SEARCH'| translate}}">
+          <input type="text" class="form-control" placeholder="{{'SEARCH'| translate}}" [(ngModel)]="searchParam" name="searchParameter">
         </div>
-        <button type="submit" class="btn btn-info">Submit</button>
+        <button type="submit" class="btn btn-info" (click)="search()">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>

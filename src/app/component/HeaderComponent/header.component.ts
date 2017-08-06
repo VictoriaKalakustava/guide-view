@@ -4,6 +4,7 @@ import { DOCUMENT } from "@angular/platform-browser";
 import {AuthGuard} from "../../service/guards/auth.guard";
 import {AppComponent} from "../../app.component";
 import {EventService} from "../../service/event.service";
+import {SearchService} from "../../service/guards/search.service";
 
 
 @Component({
@@ -13,15 +14,27 @@ import {EventService} from "../../service/event.service";
 })
 
 export class HeaderComponent {
+  searchParam: string;
   mode: Boolean = false;
   constructor(
     private authGuard: AuthGuard,
     private route: ActivatedRoute,
     private router: Router,
-    private eventService: EventService
+    private eventService: EventService,
+    private searchService: SearchService
   ) { this.changeMode();}
 
-
+  search() {
+    console.log("search");
+    console.log(this.searchParam);
+    if(this.searchParam){
+      this.searchService.search(this.searchParam).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
+    }
+  }
 
   changeMode() {
     if(this.mode) {
@@ -39,7 +52,6 @@ export class HeaderComponent {
 
   @Output() onChanged = new EventEmitter<string>();
   changeLang(lang) {
-    console.log("changelang");
       this.onChanged.emit(lang);
   }
 }
