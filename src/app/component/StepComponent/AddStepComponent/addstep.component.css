@@ -5,7 +5,7 @@
 #wrapper_instr{
   border-radius: 4px;
   padding: 15px;
-  padding-top: 0;
+  display: inline-block;
   min-height: 588px;
   height: 100%;
 }
@@ -17,11 +17,11 @@
 }
 
 #work_area{
+  margin-top: 35px;
+  padding: 5px 0px;
   border-radius: 4px;
   overflow: auto;
-  height: 83vh;
-  float: left;
-  width: 90%;
+  height:83vh;
 }
 #tlandtg{
   margin-bottom: -30px;

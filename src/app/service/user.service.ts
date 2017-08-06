@@ -53,6 +53,23 @@ export class UserService extends CoreService {
       .map((response: Response) => response.json());
   }
 
+  saveCurrentUser(username: string){
+    this.getProfileByLogin(username).subscribe(
+      data => {
+        localStorage.setItem('currentUserData', JSON.stringify({
+          login: data.username,
+          id: data.id,
+          image: data.image,
+        }));
+        console.log('data_ ' + localStorage.getItem('currentUserData'));
+        console.log('data_ ' + localStorage.getItem('currentUser'));
+      },
+      error => {
+        console.log('error in getProfileByLogin');
+      });
+  }
+
+
   /*getProfileByLogin(login: String) {
     return this.authHttp.get(`${this.webServiceEndpoint}get-user/get/1`)
       .map((response: Response) => response.json());
