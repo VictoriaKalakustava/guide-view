@@ -1,9 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
+import {Response} from '@angular/http';
 import Step from "../../../entity/step";
 import {InstructionpagepreComponent} from "../../InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component";
 import {Instruction} from "../../../entity/instruction";
 import {User} from "../../../entity/user";
 import {InstructionService} from "../../../service/instruction.service";
+import {RouterShareService} from "../../../service/router.share.service";
 
 @Component({
   selector: 'add-instruction-component',
@@ -11,39 +13,48 @@ import {InstructionService} from "../../../service/instruction.service";
   styleUrls: ['./add.instruction.component.css', '../../InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component.css'],
 })
 
-export class AddInstructionComponent{
+export class AddInstructionComponent {
   instruction: Instruction = new Instruction();
   newTag: string;
+  titleStep: string;
+  positionStep: number;
+  @Output() addInst: EventEmitter<any> = new EventEmitter();
 
   addTag() {
     console.log(this.newTag);
     console.log(this.instruction);
   }
+
   containers: Step[];
-  constructor(private instructionService: InstructionService) {
+
+
+  constructor(private instructionService: InstructionService,
+              private  routershareService: RouterShareService) {
     console.log("constructor");
     this.containers = [];
-    /*this.containers.push(new Step("a", "a"));
-    this.containers.push(new Step("b", "b"));
-    this.containers.push(new Step("c", "c"));
-    this.containers.push(new Step("d", "d"));
-    this.containers.push(new Step("dasds", "a"));
-    this.containers.push(new Step("1111b", "b"));
-    this.containers.push(new Step("222c", "c"));
-    this.containers.push(new Step("333d", "d"));
-    this.containers.push(new Step("a", "a"));
-    this.containers.push(new Step("b", "b"));
-    this.containers.push(new Step("c", "c"));*/
-    this.containers.push(new Step('asdasd', 1,1));
+    this.containers.push(new Step('Step title', 1, 1));
     console.log("n init " + this.containers);
   }
 
   save() {
     console.log(this.instruction);
-    this.instructionService.addInstruction(this.instruction).subscribe(
+    return this.instructionService.addInstruction(this.instruction).map((response: Response) => response.json())
+  }
+
+  getTitleInst() {
+    this.instruction.userId = JSON.parse(localStorage.getItem('currentUserData')).id;
+    this.save().subscribe(
       data => {
-        console.log(data);
-      }
-    )
+        this.instruction.id = data.id;
+        console.log('inst saved ' + this.instruction.id);
+        //this.addInst.emit(JSON.stringify(this.instruction));
+        },
+      error => { console.log('Error in getTitleInstruction.');
+      });
+    this.routershareService.object = this.instruction;
+    //this.routershareService.titleStep = this.titleStep;
+    this.routershareService.position = 1;
+    console.log(this.routershareService);
+    //localStorage.setItem('currentInst',JSON.stringify(this.instruction));
   }
 }

@@ -24,15 +24,15 @@
                 <div class="col-md-4" title="{{'STEP' | translate}} {{i+1}}">
                   <div class="panel panel-muted ">
                     <div class="panel-body">
-                      <a class="text-muted" style="font-size: 30px;"><b>{{i+1}} </b></a>
-                      <a>{{container.title}} </a>
+                      <a class="text-muted" style="font-size: 30px; "><b >{{i+1}} </b></a>
+                      <a style="font-size: 18px;">{{container.title}} </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-4" title="{{'ADD_STEP' | translate}}">
-              <a [routerLink]="['/profile/add-step-inst']">
+              <a [routerLink]="['/profile/add-step-inst']" (click)="getTitleInst()">
               <div class="panel panel-default">
                 <div class="panel-body text-success" style="text-align: center;" >
                   <span class="glyphicon glyphicon-plus text-muted" style="font-size: 40px"></span>

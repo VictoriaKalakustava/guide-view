@@ -1,4 +1,4 @@
-<div class="container" id="profile_component" >
+<div class="container" id="profile_component">
 
   <div  style="height: 100%; float:left;min-width: 210px;">
 
@@ -36,5 +36,7 @@
       </ul>
     </div>
   </div>
-  <router-outlet></router-outlet>
+  <div (addInst)="nameInst($event)" >
+  <router-outlet (addInst)="nameInst($event)"></router-outlet>
+  </div>
 </div>

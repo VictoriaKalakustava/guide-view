@@ -43,3 +43,10 @@
   padding-bottom: 10px;
   padding-left: 10px
 }
+
+#title_step{
+  width: 85%;
+  margin-left: 10px;
+  background-color: #ECF0F1;
+  border: 0;
+}

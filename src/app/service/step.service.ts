@@ -5,7 +5,6 @@ import {CoreService} from './core/core.service';
 import 'rxjs/add/operator/map';
 import {Response, Headers, Http, RequestOptions} from '@angular/http';
 import {AuthenticationService} from "./authentication.service";
-import {Observable} from "rxjs/Observable";
 import {AuthHttp} from "angular2-jwt";
 import Step from "../entity/step";
 
@@ -27,9 +26,8 @@ export class StepService extends CoreService {
     return this.authHttp.get(`${this.webServiceEndpoint}step/get-by-id/1`)
       .map((response: Response) => response.json());
   }
-  setStep(step: Step){
-    console.log('it s service' + step);
-    return this.authHttp.post(`${this.webServiceEndpoint}step/set-step`,step)
-      .map((response: Response) => response.json());
+  saveStep(step: Step){
+    return this.authHttp.post(`${this.webServiceEndpoint}step/set-step`,JSON.stringify(step))
+      .map((response: Response) => {return response.json()});
   }
 }
