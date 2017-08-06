@@ -33,7 +33,7 @@
           <fieldset>
             <div class="col-md-12 col-lg-12 row" style="margin-left: 0; width: 100%">
               <div class="col-lg-6" ngClass="{{isEmail?'':'has-error'}}">
-                <h5>E-mail</h5>
+                <h5>{{"EMAIL" | translate}}</h5>
                 <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.email"
                        name="email" id="inputEmail" placeholder="New email" (keyup)="checkEmail()" (input)="checkEmail()">
                 <span class="help-block error" *ngIf="formErrors.email">
@@ -42,7 +42,7 @@
               </div>
 
               <div class="col-lg-6" ngClass="{{isLogin?'':'has-error'}}">
-                <h5>Login</h5>
+                <h5>{{"LOGIN" | translate}}</h5>
                 <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.login"
                        name="login" id="inputLogin" placeholder="New login" (keyup)="checkLogin()" (input)="checkLogin()">
                 <span class="help-block error" *ngIf="formErrors.login">
@@ -52,12 +52,12 @@
 
               <div class="col-lg-6" ngClass="{{isPassword?'':'has-error'">
                 <!--TODO make change only if pass confirm-->
-                <h5>Old password</h5>
+                <h5>{{"OLD_PASSWORD" | translate}}</h5>
                 <input (change)="updateProfile()" type="password" class="form-control" [(ngModel)]="oldPassword"
                        name="password" id="inputPassword" placeholder="Old password">
               </div>
               <div class="col-lg-6" ngClass="{{isNewPassword?'has-success':(isNewPassword!==undefined?'has-error':'')}}">
-                <h5>New password</h5>
+                <h5>{{"NEW_PASSWORD" | translate}}</h5>
                 <input type="password" class="form-control" [(ngModel)]="newPassword" name="confirmPassword"
                        id="inputLConfirmPassword" placeholder="New password" (keyup)="checkPassword()" (input)="checkPassword()">
                 <span class="help-block error" *ngIf="formErrors.newPassword">
@@ -65,7 +65,7 @@
               </span>
               </div>
               <div class="col-lg-6" ngClass="{{isName?'':'has-error'}}">
-                <h5>Name</h5>
+                <h5>{{"NAME" | translate}}</h5>
                 <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.name"
                        name="login" id="inputName"  (keyup)="checkName()" (input)="checkName()">
                 <span class="help-block error" *ngIf="formErrors.name">
@@ -73,7 +73,7 @@
               </span>
               </div>
               <div class="col-lg-6" ngClass="{{isSurname?'':'has-error'}}">
-                <h5>Surname</h5>
+                <h5>{{"LASTNAME" | translate}}</h5>
                 <input (change)="updateProfile()" type="text" class="form-control" [(ngModel)]="user.surname"
                        name="login" id="inputSurname"  (keyup)="checkSurname()" (input)="checkSurname()">
                 <span class="help-block error" *ngIf="formErrors.surname">

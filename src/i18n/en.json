@@ -16,7 +16,8 @@
   "NEW_EMAIL": "Edit email",
   "NEW_USERNAME": "Edit Username",
   "NEW_PHOTO": "Edit Photo",
-  "NEW_PASSWORD": "Edit Password",
+  "OLD_PASSWORD": "Old password",
+  "NEW_PASSWORD": "New password",
   "MEDAL": "Medal",
   "PROFILE_ARTICLE": "My article",
   "LOGIN_REQUEST": "Login is required",
@@ -54,5 +55,7 @@
   "CANCEL": "Cancel",
   "REQUIRED": "Required",
   "INVALID_EMAIL": "It is not email",
-  "PASSWORD_RULES": "Must contain at least 8 characters. At least 1 number, 1 lowercase letter, 1 upcase letter."
+  "PASSWORD_RULES": "Must contain at least 8 characters. At least 1 number, 1 lowercase letter, 1 upcase letter.",
+  "ADD_INSTR": "Create instruction",
+  "ABOUT": "About"
 }
