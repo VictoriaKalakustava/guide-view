@@ -1,10 +1,16 @@
 import {Injectable} from "@angular/core";
+import Step from "../entity/step";
+import {Instruction} from "../entity/instruction";
 
 @Injectable()
 export class RouterShareService {
 
-  object: any;
+  objectElement: Element;
+  objectStep: Step;
+  objectInstruction: Instruction;
+  containers: Step[];
   titleStep: string;
   position: number;
-  source: string;
+  isAdded = false;
+  idInst = 0;
 }
