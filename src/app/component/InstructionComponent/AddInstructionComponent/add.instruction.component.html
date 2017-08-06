@@ -5,7 +5,7 @@
       <div class="col-md-9" style="margin-left: 5px;">
         <div class="row jumbotron add_instr_form">
           <div class="form-group title_container">
-            <input type="text" [(ngModel)]="instruction.title" class="form-control" placeholder="{{'TITLE' | translate}}">
+            <input type="text" [(ngModel)]="titleInstruction" class="form-control" placeholder="{{'TITLE' | translate}}">
           </div>
           <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
             <label class="btn btn-default btn-xs tag">
@@ -24,8 +24,13 @@
                 <div class="col-md-4" title="{{'STEP' | translate}} {{i+1}}">
                   <div class="panel panel-muted ">
                     <div class="panel-body">
-                      <a class="text-muted" style="font-size: 30px; "><b >{{i+1}} </b></a>
-                      <a style="font-size: 18px;">{{container.title}} </a>
+                      <a class="text-muted" style="font-size: 30px;float: left; "><b >{{i+1}} </b></a>
+                      <div class="col-xs-10" >
+                        <div class="text" style="font-size: 13px;">
+                          {{container.title}}
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
