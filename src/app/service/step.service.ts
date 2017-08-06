@@ -30,4 +30,9 @@ export class StepService extends CoreService {
     return this.authHttp.post(`${this.webServiceEndpoint}step/set-step`,JSON.stringify(step))
       .map((response: Response) => {return response.json()});
   }
+  deleteStep(step: Step){
+    console.log('this is delete step___' + JSON.stringify(step));
+    return this.authHttp.post(`${this.webServiceEndpoint}step/del-step`,JSON.stringify(step))
+      .map((response: Response)=>{return response.json()});
+  }
 }

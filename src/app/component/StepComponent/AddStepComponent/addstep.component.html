@@ -1,8 +1,12 @@
 <div class="col-md-9" id="wrapper_instr" >
   <div id="wrapper_wa">
+    <span class="help-block error" *ngIf="formErrors.titleInstruction" >
+      {{ formErrors.titleInstruction | translate}}
+    </span>
     <div class="input-group" id="tlandtg">
       <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-fire"></i></span>
-      <input type="text" [(ngModel)]="titleStep" class="form-control" placeholder="Title of step" aria-describedby="basic-addon1">
+      <input type="text" [(ngModel)]="titleStep" class="form-control" placeholder="{{'TITLE_STEP' | translate}}" aria-describedby="basic-addon1"
+             (change)="checkTitle()" (input)="checkTitle()">
     </div>
     <div id="work_area" class="modal-body jumbotron"
          infinite-scroll
@@ -29,15 +33,15 @@
   <div id="redctn_btn" >
 
 
-    <button type="button" (click)="addContainer('text')" title="{{'TEXT' | translate}}" class="add_btn btn btn-info col-sx-3">
+    <button type="button" (click)="addContainer('text')" (click)="checkContainers()" title="{{'TEXT' | translate}}" class="add_btn btn btn-info col-sx-3">
        <i class="glyphicon glyphicon-pencil"></i>
     </button>
 
-    <button type="button" (click)="addContainer('image')" title="{{'IMAGE' | translate}}" class="add_btn btn btn-info">
+    <button type="button" (click)="addContainer('image')" (click)="checkContainers()"  title="{{'IMAGE' | translate}}" class="add_btn btn btn-info">
        <i class="glyphicon glyphicon-picture"></i>
     </button>
 
-    <button type="button" (click)="addContainer('video')" title="{{'VIDEO' | translate}}" class="add_btn btn btn-info">
+    <button type="button" (click)="addContainer('video')" (click)="checkContainers()" title="{{'VIDEO' | translate}}" class="add_btn btn btn-info">
        <i class="glyphicon glyphicon-film"></i>
     </button>
 
@@ -45,7 +49,7 @@
       <i class="glyphicon glyphicon-eye-open"></i>
     </button>
 
-    <button type="button" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
+    <button type="button" [disabled]="!isTitleCorrect || !isContainers" (click)="setStep()" class="add_btn btn btn-success" title="{{'SAVE' | translate}}" style="">
        <i class="glyphicon glyphicon-save"></i>
     </button>
   </div>
