@@ -7,6 +7,7 @@ import {User} from "../../../entity/user";
 import {InstructionService} from "../../../service/instruction.service";
 import {RouterShareService} from "../../../service/router.share.service";
 import {ActivatedRoute} from "@angular/router";
+import {StepService} from "../../../service/step.service";
 
 @Component({
   selector: 'add-instruction-component',
@@ -21,11 +22,10 @@ export class AddInstructionComponent implements OnInit{
   titleInstruction: string;
   positionStep: number;
   containers: Step[];
-  idValid: boolean;
   idInst: number;
   private isAdded: boolean;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private stepService: StepService,
               private instructionService: InstructionService,
               private routershareService: RouterShareService) {
     this.containers = [];
@@ -48,7 +48,6 @@ export class AddInstructionComponent implements OnInit{
   }
 
   save() {
-    console.log('eto zdes bliat' + this.instruction.id);
     return this.instructionService.addInstruction(this.instruction).map((response: Response) => response.json())
   }
 
@@ -66,4 +65,19 @@ export class AddInstructionComponent implements OnInit{
     this.routershareService.objectInstruction = this.instruction;
     this.routershareService.position = 1;
   }
+  saveAll(){
+    let i = 0;
+    for(let elem of this.containers){
+      console.log('Step before ' + JSON.stringify( elem));
+      elem.position = i;
+      elem.instructionId = this.instruction.id;
+      elem.instruction = this.instruction;
+      console.log('Step after ' + JSON.stringify( elem));
+      this.stepService.saveStep(elem).subscribe(data=>{
+        console.log('saved' + data.json());
+      }, error=> {console.log(error)});
+      i++;
+    }
+  }
+
 }
