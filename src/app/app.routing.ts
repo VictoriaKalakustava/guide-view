@@ -9,6 +9,7 @@ import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComp
 import {AddstepComponent} from "./component/StepComponent/AddStepComponent/addstep.component";
 import {SearchResultComponent} from "./component/InstructionComponent/SearchResultComponent/search.result.component";
 import {InstructionpreComponent} from "./component/InstructionComponent/InstructionPreComponent/instructionpre.component";
+import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
 
 const appRoutes: Routes = [
   {
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
       { path: 'prew-inst', component: InstructionpreComponent},
     ]
   },
+  { path: 'instruction/:id', component: InstructionComponent},
   { path: 'step/get-by-id/:id', component: StepComponent},
   { path: 'search/:searchParam', component: SearchResultComponent},
 
