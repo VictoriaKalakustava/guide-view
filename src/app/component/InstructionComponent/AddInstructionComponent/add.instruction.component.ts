@@ -1,20 +1,17 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {Response} from '@angular/http';
 import Step from "../../../entity/step";
-import {InstructionpagepreComponent} from "../../InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component";
 import {Instruction} from "../../../entity/instruction";
-import {User} from "../../../entity/user";
 import {InstructionService} from "../../../service/instruction.service";
 import {RouterShareService} from "../../../service/router.share.service";
-import {ActivatedRoute} from "@angular/router";
 import {StepService} from "../../../service/step.service";
 import {ValidationService} from "../../../service/validation.service";
-import {consoleTestResultHandler} from "tslint/lib/test";
+
 
 @Component({
   selector: 'add-instruction-component',
   templateUrl: './add.instruction.component.html',
-  styleUrls: ['./add.instruction.component.css', '../../InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component.css'],
+  styleUrls: ['./add.instruction.component.css', '../InstructionPreComponent/instructionpre.component.css'],
 })
 
 export class AddInstructionComponent implements OnInit{

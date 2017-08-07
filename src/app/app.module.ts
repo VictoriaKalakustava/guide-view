@@ -17,16 +17,16 @@ import { appRoutingProviders, routing} from './app.routing';
 import { BackgroundComponent} from './component/BackgroundComponent/background.component';
 import { DraganddropComponent} from './component/DragandropComponent/draganddrop.component';
 import { AddstepComponent} from './component/StepComponent/AddStepComponent/addstep.component';
-import { InstructionpagepreComponent} from './component/InstructionpageComponent/InstructionpagePreComponent/instructionpagepre.component';
+import { InstructionpreComponent} from './component/InstructionComponent/InstructionPreComponent/instructionpre.component';
 import { DndModule} from 'ng2-dnd';
 import { TextareaComponent} from './component/TextareaComponent/textarea.component';
 import { InfiniteScrollModule} from 'angular2-infinite-scroll';
 import { ImageareaComponent} from './component/ImageareaComponent/imagearea.component';
-//import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
+import { VideoareaComponent} from './component/VideoareaComponent/videoarea.component';
 import { SafePipe} from './service/safepipe.service';
 import { SignupComponent} from "./component/LoginSignupForm/SignUpComponent/signup.component";
 import { LoginComponent} from "./component/LoginSignupForm/LoginComponent/login.component";
-//import { YoutubePlayerModule} from "ng2-youtube-player";
+import { YoutubePlayerModule} from "ng2-youtube-player";
 import { AuthenticationService} from "./service/authentication.service";
 import { AuthGuard} from "./service/guards/auth.guard";
 import { InstructionComponent} from "./component/InstructionComponent/instruction.component";
@@ -68,12 +68,12 @@ export function HttpLoaderFactory(http: Http) {
     InstructionComponent,
     BackgroundComponent,
     DraganddropComponent,
-    InstructionpagepreComponent,
+    InstructionpreComponent,
     AddstepComponent,
     StepComponent,
     TextareaComponent,
     ImageareaComponent,
-   // VideoareaComponent,
+    VideoareaComponent,
     LogoutComponent,
     EditprofileComponent,
     ViewprofileComponent,
@@ -85,7 +85,7 @@ export function HttpLoaderFactory(http: Http) {
     FormsModule,
     HttpModule,
     routing,
-   // YoutubePlayerModule,
+    YoutubePlayerModule,
     Ng2CloudinaryModule,
     FileUploadModule,
     DndModule.forRoot(),

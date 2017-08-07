@@ -5,9 +5,16 @@
       <div class="col-md-9" style="margin-left: 5px;">
         <div class="row jumbotron add_instr_form" style="padding-right: 0">
           <div class="form-group title_container" ngClass="{{isTitleCorrect?'has-success':''}}">
-            <input type="text" [(ngModel)]="titleInstruction" class="form-control"
-                   placeholder="{{'TITLE' | translate}}"
-                   (change)="checkTitle()" (input)="checkTitle()">
+            <div style="display: flex;">
+              <input type="text" [(ngModel)]="titleInstruction" class="form-control"
+                     placeholder="{{'TITLE' | translate}}"
+                     (change)="checkTitle()" (input)="checkTitle()"
+                      style="width: 90%;">
+
+              <button [routerLink]="['/profile/prew-inst']" type="button" class="add_btn btn btn-success" title="{{'PREVIEW' | translate}}" style="width: 10%;margin: 2px 5px;">
+                <i class="glyphicon glyphicon-eye-open"></i>
+              </button>
+            </div>
           </div>
           <span class="help-block error" *ngIf="formErrors.titleInstruction" style="margin-left: 15px">
                 {{ formErrors.titleInstruction | translate}}
