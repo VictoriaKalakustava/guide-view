@@ -1,0 +1,122 @@
+<div data-spy="scroll" data-target="#nav" data-offset="50"></div>
+<div class="row" style="float: left;width: 81%; margin-left: 0px;">
+  <div style="display: inline-block;">
+    <div style="height: 112vh; float: left;width: 83%;">
+
+      <div class="" infinite-scroll
+           [infiniteScrollDistance]="modalScrollDistance"
+           [infiniteScrollThrottle]="modalScrollThrottle"
+           [scrollWindow]="false"
+            style="overflow: auto; height: 100%">
+
+        <div style=" margin: 0px 20px 0px 20px;">
+          <div class="row jumbotron" style="padding: 10px; margin-bottom: -10px;">
+            <div class="" style="padding-left: 15px; padding-right: 15px; padding-bottom: 15px">
+              <h3 style="margin-top: 0">{{instruction.title}}
+              </h3>
+              <div class="rating" style="margin-top: 5px; margin-bottom: 5px">
+                <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                            </span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star">
+                            </span><span class="glyphicon glyphicon-star-empty"></span>
+
+                <!--TODO: add link to user profile-->
+                <span class="glyphicon glyphicon-user"></span><a href="/profile">{{instruction.userLogin}}</a>
+              </div>
+              <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
+                <label class="btn btn-default btn-xs tag">
+                  cats
+                </label>
+                <label class="btn btn-default btn-xs tag">
+                  drugs
+                </label>
+                <label class="btn btn-default btn-xs tag">
+                  rock-n-roll
+                </label>
+              </a>
+
+            </div>
+            <div id="steps">
+              <div *ngFor="let container of containers; let i = index">
+                <div class="col-md-4" title="{{'STEP' | translate}} {{i+1}}">
+                  <div class="panel panel-muted ">
+                    <div class="panel-body" ngClass="{{isDay?'color-0':'color-1'}}">
+                      <a class="text-muted" style="font-size: 30px;"><b>{{i+1}} </b></a>
+                      <a>{{container.title}} </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngFor="let step of instruction.step; let i = index" style="margin-top: -10px; margin-left:20px;margin-right:20px;">
+          <div class="row">
+            <div>
+              <div>
+                <div>
+                  <div class="  jumbotron" style="margin-top:20px; padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px; margin-bottom: 0">
+                    <h3 style="margin-top: 0; margin-bottom: 20px">{{step.title}} </h3>
+                    <hr>
+                    <div *ngFor="let elem of step.elements" id="text-container">
+                      <div *ngIf="elem.type == 'TEXT'">
+                        {{elem.value}}
+                      </div>
+                      <div *ngIf="elem.type == 'IMAGE'">
+                        <div class="panel panel-default">
+                          <div class="panel-body" >
+                            <div class="media">
+                              <div align="center">
+                                <img id="id-area-image" class="img-responsive"
+                                     src='http://res.cloudinary.com/dhimzt8vr/image/upload/v1501759439/{{elem.value}}.jpg'/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="elem.type == 'VIDEO'">
+                        <youtube-player *ngIf="id!= null" id="player" [videoId]=elem.value></youtube-player>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+    <div style="display: grid;">
+      <div id="redctn_btn" style="display: inline-flex; margin-left: 5px; width: 100%;">
+        <button type="button" title="{{'EDIT' | translate}}" class="btn btn-info col-sx-3">
+          <i class="glyphicon glyphicon-pencil"></i>
+        </button>
+
+        <button type="button" class="btn btn-success" title="{{'SAVE' | translate}}" style="margin-left: 5px;">
+          <i class="glyphicon glyphicon-floppy-save"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger" title="{{'DELETE' | translate}}" style="margin-left: 5px;">
+          <i class="glyphicon glyphicon-trash"></i>
+        </button>
+      </div>
+
+      <div class="col-md-2 jumbotron"
+           style=" width:100%; padding: 10px; margin-left: 5px; margin-top: 5px;"
+           id="nav">
+        <h3 style="margin-top: 0px">Steps</h3>
+        <div *ngFor="let step of instruction.step; let i = index;" class="step-from-steps">
+          <a href="#step1">{{i+1}}.{{step.title}}</a>
+        </div>
+      </div>
+    </div>
+ </div>
+</div>
+
+
+
+
+
+

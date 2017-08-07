@@ -5,6 +5,7 @@
 }
 
 #profile_ph{
+  min-width:250px;
   width: 25%;
   padding-top: 15px;
 }

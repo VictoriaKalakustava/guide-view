@@ -57,5 +57,6 @@
   "INVALID_EMAIL": "It is not email",
   "PASSWORD_RULES": "Must contain at least 8 characters. At least 1 number, 1 lowercase letter, 1 upcase letter.",
   "ADD_INSTR": "Create instruction",
-  "ABOUT": "About"
+  "ABOUT": "About",
+  "TITLE_STEP": "Step Title"
 }

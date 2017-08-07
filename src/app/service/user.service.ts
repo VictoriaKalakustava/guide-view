@@ -69,9 +69,4 @@ export class UserService extends CoreService {
       });
   }
 
-
-  /*getProfileByLogin(login: String) {
-    return this.authHttp.get(`${this.webServiceEndpoint}get-user/get/1`)
-      .map((response: Response) => response.json());
-  }*/
 }
