@@ -1,22 +1,21 @@
 <div class="col-md-9  " id="profile">
-  <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " style="padding-top: 15px;">
+  <div class="col-lg-3 col-md-3 hidden-sm hidden-xs " id="profile_ph">
+
     <div class="panel panel-default">
-      <div class="panel-body ">
+      <div class="panel-body">
         <div class="media">
           <div align="center">
-            <img *ngIf="!user.image" class="thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px"
-                 height="300px">
-            <div style="width: 300px; height: 300px; position: relative; top: -30%; left: -50%;">
-              <cl-image *ngIf="user.image" public-id={{user.image}} cloud-name="dhimzt8vr">
-                <!--<cl-transformation width="401" crop="scale">-->
-                <!--</cl-transformation>-->
-              </cl-image>
+            <img *ngIf="!user.image" class="thumbnail img-responsive"
+                 src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png"
+                 width="300px" height="300px">
+            <div>
+              <img id="cloud-img" *ngIf="user.image"
+                   src='http://res.cloudinary.com/dhimzt8vr/image/upload/c_lfill,h_250,q_100,r_0,w_250/a_0/{{user.image}}.jpg'/>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 
 
