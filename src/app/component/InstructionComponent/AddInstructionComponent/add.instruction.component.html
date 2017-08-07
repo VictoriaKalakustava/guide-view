@@ -12,13 +12,13 @@
           <span class="help-block error" *ngIf="formErrors.titleInstruction" style="margin-left: 15px">
                 {{ formErrors.titleInstruction | translate}}
               </span>
-          <a id="tag-cloud" *ngFor="let i of [0,1,2,3,4,5]">
-            <label class="btn btn-default btn-xs tag">
-              cats  <i class="glyphicon glyphicon-remove small"></i>
-            </label>
-          </a>
+          <a id="tag-cloud" *ngFor="let tag of instruction.tags">
+          <label class="btn btn-default btn-xs tag">
+            {{tag.name}}  <i class="glyphicon glyphicon-remove small"></i>
+          </label>
+        </a>
           <div class="input-group" style=" margin-top: 5px">
-            <input type="text" [(ngModel)]="newTag" class="form-control" placeholder="{{'NEW_TAG' | translate}}">
+            <input type="text" [(ngModel)]="newTag.name" class="form-control" placeholder="{{'NEW_TAG' | translate}}">
             <span class="input-group-btn">
               <button class="btn btn-default" (click)="addTag()" type="button" style="margin-right: 10px;">{{'ADD_TAG' | translate}}</button>
             </span>

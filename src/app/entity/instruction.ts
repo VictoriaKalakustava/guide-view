@@ -1,5 +1,6 @@
 import Step from "./step";
 import {User} from "./user";
+import Tag from "./tag";
 
 export class Instruction {
   id: number;
@@ -8,5 +9,5 @@ export class Instruction {
   userLogin: string;
   userId: number;
   step: Step[];
-
+  tags: Tag[];
 }

@@ -8,6 +8,7 @@ import {ViewprofileComponent} from "./component/ProfileComponent/ViewProfileComp
 import {EditprofileComponent} from "./component/ProfileComponent/EditProfileComponent/editprofile.component";
 import {AddstepComponent} from "./component/StepComponent/AddStepComponent/addstep.component";
 import {SearchResultComponent} from "./component/InstructionComponent/SearchResultComponent/search.result.component";
+import {InstructionComponent} from "./component/InstructionComponent/instruction.component";
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
       { path: 'add-step-inst', component: AddstepComponent},
     ]
   },
+  { path: 'instruction/:id', component: InstructionComponent},
   { path: 'step/get-by-id/:id', component: StepComponent},
   { path: 'search/:searchParam', component: SearchResultComponent},
 
